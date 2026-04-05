@@ -10,7 +10,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-
+ 
 :root{
   --bg:#0b0b0d;--bg2:#111114;--surface:#16161a;--surface2:#1e1e24;
   --ink:#f0ede8;--ink2:#b8b4ae;--ink3:#787470;--ink4:#4a4844;
@@ -31,18 +31,18 @@ html{scroll-behavior:smooth}
   --spine:#d8d4cc;--node:#f2efe9;--node-ring:rgba(24,22,18,.2);
   --card:#ffffff;--card-border:rgba(24,22,18,.1);--tag-bg:rgba(24,22,18,.06);--nav:#f2efe9;
 }
-
+ 
 body{font-family:var(--body);background:var(--bg);color:var(--ink);transition:background .3s,color .3s;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
 body.lang-th{font-family:'Noto Sans Thai',var(--body)}
 body.lang-zh{font-family:'Noto Sans SC',var(--body)}
-
+ 
 /* ── BG CANVAS ── */
 #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35}
 [data-theme="light"] #bg-canvas{opacity:.18}
-
+ 
 /* ── page wrapper keeps z above canvas ── */
 .page-wrap{position:relative;z-index:1}
-
+ 
 /* ── NAV ── */
 nav{
   position:sticky;top:0;z-index:200;
@@ -59,7 +59,7 @@ nav{
 .tsep{width:1px;height:18px;background:var(--rule2);margin:0 2px}
 .tbtn{background:none;border:1px solid var(--rule2);border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:transform .2s;color:var(--ink2)}
 .tbtn:hover{transform:rotate(15deg) scale(1.08)}
-
+ 
 /* ── HERO ── */
 .hero{max-width:900px;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(20px,5vw,48px) 0;position:relative;overflow:visible}
 .hero-eyebrow{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
@@ -70,12 +70,12 @@ body.lang-zh .hero-hed{font-family:'Noto Sans SC',sans-serif;font-weight:700;fon
 .hero-hed .acc{color:var(--accent)}
 .hero-sub{font-family:var(--body);font-size:clamp(15px,1.8vw,18px);font-weight:300;line-height:1.7;color:var(--ink2);max-width:580px;margin-top:20px;padding-top:20px;border-top:1px solid var(--rule2);position:relative;z-index:2}
 body.lang-th .hero-sub,body.lang-zh .hero-sub{font-size:14px;line-height:1.8}
-
+ 
 /* hero art — radar globe, bigger, animated */
 .hero-art{position:absolute;right:clamp(-20px,0vw,0px);top:20px;pointer-events:none;z-index:1}
 [data-theme="light"] .hero-art svg{opacity:.07}
 .hero-art svg{opacity:.12}
-
+ 
 /* spinning ring animation */
 @keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes spin-rev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
@@ -85,18 +85,18 @@ body.lang-th .hero-sub,body.lang-zh .hero-sub{font-size:14px;line-height:1.8}
 @keyframes float-up{0%{transform:translateY(0) scaleX(1)}50%{transform:translateY(-4px) scaleX(.98)}100%{transform:translateY(0) scaleX(1)}}
 @keyframes dash-move{from{stroke-dashoffset:0}to{stroke-dashoffset:-24}}
 @keyframes glow-pulse{0%,100%{opacity:.6;filter:blur(0px)}50%{opacity:1;filter:blur(1px)}}
-
+ 
 .radar-ring1{transform-origin:160px 160px;animation:spin-slow 12s linear infinite}
 .radar-ring2{transform-origin:160px 160px;animation:spin-rev 18s linear infinite}
 .radar-sweep-line{transform-origin:160px 160px;animation:radar-sweep 4s linear infinite}
-
+ 
 /* ── SCENE BANNER — between hero and stats ── */
 .scene-banner{
   max-width:900px;margin:32px auto 0;
   padding:0 clamp(20px,5vw,48px);
 }
 .scene-banner svg{width:100%;height:auto;display:block}
-
+ 
 /* ── STAT BAR ── */
 .statbar{max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule2);border-bottom:1px solid var(--rule2)}
 .sitem{padding:22px 0;text-align:center;border-right:1px solid var(--rule)}
@@ -106,15 +106,15 @@ body.lang-th .snum,body.lang-zh .snum{font-family:var(--cond);font-weight:700;fo
 .snum.a{color:var(--accent)}.snum.b{color:var(--blue)}.snum.r{color:var(--red)}.snum.g{color:var(--green)}
 .slbl{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);line-height:1.4}
 body.lang-th .slbl,body.lang-zh .slbl{font-family:'Noto Sans Thai','Noto Sans SC',sans-serif;font-size:10px;letter-spacing:.02em;text-transform:none}
-
+ 
 /* ── TIMELINE LABEL ── */
 .tl-label{max-width:900px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(20px,5vw,48px) 0;display:flex;align-items:center;gap:16px}
 .tl-label-text{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
 .tl-label-line{flex:1;height:1px;background:var(--rule2)}
-
+ 
 /* ── TIMELINE ── */
 .timeline{max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,48px) 80px;position:relative}
-
+ 
 /* spine — gradient glow */
 .timeline::before{
   content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;
@@ -128,7 +128,7 @@ body.lang-th .slbl,body.lang-zh .slbl{font-family:'Noto Sans Thai','Noto Sans SC
   transform:translateX(-50%);filter:blur(4px);pointer-events:none;
 }
 [data-theme="light"] .timeline::after{display:none}
-
+ 
 /* ── EVENT ── */
 .event{position:relative;display:grid;grid-template-columns:1fr 64px 1fr;align-items:start;padding:clamp(28px,4vw,48px) 0}
 .event .event-left{grid-column:1;grid-row:1}
@@ -137,7 +137,7 @@ body.lang-th .slbl,body.lang-zh .slbl{font-family:'Noto Sans Thai','Noto Sans SC
 .event.flip .event-left{grid-column:1;display:none}
 .event.flip .event-node{grid-column:2}
 .event.flip .event-right{grid-column:3;display:block}
-
+ 
 /* node */
 .event-node{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:2;padding-top:4px}
 .node-icon{width:52px;height:52px;border-radius:50%;border:2px solid var(--node-ring);background:var(--node);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s,box-shadow .3s;position:relative}
@@ -150,11 +150,11 @@ body.lang-th .slbl,body.lang-zh .slbl{font-family:'Noto Sans Thai','Noto Sans SC
 /* pulse ring on hover */
 .node-icon::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid currentColor;opacity:0;transition:opacity .3s}
 .event:hover .node-icon::after{opacity:.3}
-
+ 
 /* card padding */
 .event-left{padding:0 clamp(12px,2.5vw,28px) 0 0}
 .event-right{padding:0 0 0 clamp(12px,2.5vw,28px)}
-
+ 
 /* card */
 .event-card{
   background:var(--card);border:1px solid var(--card-border);border-radius:12px;
@@ -164,7 +164,7 @@ body.lang-th .slbl,body.lang-zh .slbl{font-family:'Noto Sans Thai','Noto Sans SC
 }
 .event:hover .event-card{border-color:var(--rule2);box-shadow:0 8px 32px rgba(0,0,0,.18)}
 [data-theme="light"] .event:hover .event-card{box-shadow:0 4px 20px rgba(0,0,0,.08)}
-
+ 
 /* card watermark art */
 .card-watermark{
   position:absolute;right:-10px;bottom:-10px;
@@ -174,30 +174,30 @@ body.lang-th .slbl,body.lang-zh .slbl{font-family:'Noto Sans Thai','Noto Sans SC
 .event:hover .card-watermark{opacity:.07}
 [data-theme="light"] .card-watermark{opacity:.03}
 [data-theme="light"] .event:hover .card-watermark{opacity:.05}
-
+ 
 /* card content above watermark */
 .ev-date,.ev-hed,.ev-body,.ev-stat,.ev-tags{position:relative;z-index:1}
-
+ 
 /* arrow nubs */
 .event-left .event-card::after{content:'';position:absolute;right:-8px;top:24px;width:10px;height:10px;background:var(--card);border-top:1px solid var(--card-border);border-right:1px solid var(--card-border);transform:rotate(45deg);z-index:2}
 .event-right .event-card::before{content:'';position:absolute;left:-8px;top:24px;width:10px;height:10px;background:var(--card);border-bottom:1px solid var(--card-border);border-left:1px solid var(--card-border);transform:rotate(45deg);z-index:2}
-
+ 
 /* date */
 .ev-date{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
 body.lang-th .ev-date,body.lang-zh .ev-date{letter-spacing:.04em;text-transform:none}
-
+ 
 /* headline */
 .ev-hed{font-family:var(--serif);font-size:clamp(22px,3vw,32px);line-height:1.05;color:var(--ink);margin-bottom:10px}
 body.lang-th .ev-hed{font-family:'Noto Sans Thai',sans-serif;font-weight:700;font-size:clamp(18px,2.5vw,24px);line-height:1.25}
 body.lang-zh .ev-hed{font-family:'Noto Sans SC',sans-serif;font-weight:700;font-size:clamp(18px,2.5vw,26px);line-height:1.15}
 .ev-hed .accent{color:var(--accent)}.ev-hed .blue{color:var(--blue)}.ev-hed .green{color:var(--green)}.ev-hed .amber{color:var(--accent2)}
-
+ 
 /* body — neon in dark */
 .ev-body{font-size:clamp(13px,1.5vw,14.5px);font-weight:400;line-height:1.72;color:var(--ink2);margin-bottom:12px}
 :root .ev-body{color:#39ff6a;text-shadow:0 0 8px rgba(57,255,106,.18)}
 [data-theme="light"] .ev-body{color:var(--ink2);text-shadow:none}
 body.lang-th .ev-body,body.lang-zh .ev-body{font-size:13px;line-height:1.8}
-
+ 
 /* stat strip */
 .ev-stat{display:flex;align-items:baseline;gap:6px;margin:12px 0;padding:10px 14px;background:var(--surface2);border-radius:6px;border-left:3px solid var(--accent)}
 .ev-stat.blue{border-left-color:var(--blue)}.ev-stat.green{border-left-color:var(--green)}.ev-stat.amber{border-left-color:var(--accent2)}
@@ -206,24 +206,24 @@ body.lang-th .ev-stat-num,body.lang-zh .ev-stat-num{font-family:var(--cond);font
 .ev-stat.blue .ev-stat-num{color:var(--blue)}.ev-stat.green .ev-stat-num{color:var(--green)}.ev-stat.amber .ev-stat-num{color:var(--accent2)}
 .ev-stat-lbl{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
 body.lang-th .ev-stat-lbl,body.lang-zh .ev-stat-lbl{letter-spacing:.02em;text-transform:none}
-
+ 
 /* tags */
 .ev-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
 .ev-tag{background:var(--tag-bg);border-radius:3px;padding:3px 8px;font-family:var(--cond);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
 body.lang-th .ev-tag,body.lang-zh .ev-tag{font-family:'Noto Sans Thai','Noto Sans SC',sans-serif;font-size:9px;letter-spacing:.02em;text-transform:none}
-
+ 
 /* ── DIVIDER ART between events ── */
 .ev-divider{display:flex;justify-content:center;align-items:center;gap:0;padding:0;position:relative;z-index:1}
 .ev-divider svg{display:block}
-
+ 
 /* ── FOOTER ── */
 .footer{max-width:900px;margin:0 auto;padding:32px clamp(20px,5vw,48px) 56px;border-top:1px solid var(--rule2);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
 .ftext{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
-
+ 
 /* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .reveal.vis{opacity:1;transform:none}
-
+ 
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
   .timeline::before{left:28px;transform:none}
@@ -246,10 +246,10 @@ body.lang-th .ev-tag,body.lang-zh .ev-tag{font-family:'Noto Sans Thai','Noto San
 </style>
 </head>
 <body data-theme="dark">
-
+ 
 <!-- ANIMATED BG -->
 <canvas id="bg-canvas"></canvas>
-
+ 
 <div class="page-wrap">
 <!-- ═══ DATA ═══ -->
 <script>
@@ -309,7 +309,7 @@ zh:{
   footer:{brand:"CrisisWatch · OilDomino",url:"rubi-ai-deploy.github.io/oil-domino-effect",loc:"泰国 · 2026年4月"}
 }
 };
-
+ 
 /* ── CARD WATERMARKS — large SVG art per event ── */
 const WATERMARKS=[
   /* 0 university / flames */
@@ -325,7 +325,7 @@ const WATERMARKS=[
   /* 5 clock + warning triangle */
   `<svg width="160" height="160" viewBox="0 0 160 160" fill="none"><circle cx="80" cy="88" r="56" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M80 56v34l22 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M62 12h36M80 12v18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M44 34L30 46M116 34L130 46" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/><path d="M30 14L80 6 130 14" stroke="currentColor" stroke-width="1" opacity=".2"/><path d="M80 6 L140 26 130 46" stroke="var(--accent)" stroke-width="1.5" opacity=".3" stroke-dasharray="4 3"/></svg>`,
 ];
-
+ 
 /* ── NODE ICONS ── */
 const ICONS=[
   `<svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2L3 8v2h2v10H3v2h20v-2h-2V10h2V8L13 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 20V14h6v6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="20" cy="3.5" r="2" fill="var(--red)" opacity=".9"/></svg>`,
@@ -335,7 +335,7 @@ const ICONS=[
   `<svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 3l2.5 7h7.5l-6 4.5 2.3 7L13 18l-6.3 3.5 2.3-7L3 10h7.5L13 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 3l2.5 7h7.5l-6 4.5 2.3 7L13 18l-6.3 3.5 2.3-7L3 10h7.5L13 3z" fill="var(--green)" opacity=".15"/><circle cx="13" cy="13" r="2" fill="var(--green)" opacity=".8"/></svg>`,
   `<svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="14" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M13 9v5.5l3.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10 2h6M13 2v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9 5.5l1.5 1.5M17 5.5L15.5 7" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" opacity=".8"/></svg>`,
 ];
-
+ 
 /* ── DIVIDER ARTS between events ── */
 const DIVIDERS=[
   /* missile trail */
@@ -371,10 +371,10 @@ const DIVIDERS=[
     <path d="M200 8l2 5h5l-4 3 1.5 5L200 18l-4.5 3 1.5-5-4-3h5z" fill="var(--green)" opacity=".5"/>
   </svg>`,
 ];
-
+ 
 const DOT_COLORS={red:"var(--red)",amber:"var(--accent2)",blue:"var(--blue)",green:"var(--green)"};
 let lang="en",theme="dark";
-
+ 
 function render(l){
   lang=l;
   const d=DATA[l];
@@ -427,7 +427,7 @@ function render(l){
   document.getElementById("floc").textContent=d.footer.loc;
   observeReveal();
 }
-
+ 
 function setTheme(t){
   theme=t;
   document.body.setAttribute("data-theme",t);
@@ -435,14 +435,14 @@ function setTheme(t){
   initCanvas();
 }
 function toggleTheme(){setTheme(theme==="dark"?"light":"dark")}
-
+ 
 function observeReveal(){
   const els=document.querySelectorAll(".reveal:not(.vis)");
   if(!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("vis"));return}
   const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("vis");obs.unobserve(e.target)}})},{threshold:.06});
   els.forEach(e=>obs.observe(e));
 }
-
+ 
 /* ── ANIMATED BACKGROUND CANVAS ── */
 function initCanvas(){
   const cv=document.getElementById("bg-canvas");
@@ -478,7 +478,7 @@ function initCanvas(){
   raf=requestAnimationFrame(draw);
 }
 </script>
-
+ 
 <!-- ═══ MARKUP ═══ -->
 <nav>
   <span class="nav-logo">CrisisWatch</span>
@@ -490,7 +490,7 @@ function initCanvas(){
     <button class="tbtn" onclick="toggleTheme()"><span id="theme-icon">☀️</span></button>
   </div>
 </nav>
-
+ 
 <!-- HERO -->
 <header class="hero">
   <!-- animated radar globe -->
@@ -532,12 +532,12 @@ function initCanvas(){
       <circle cx="185" cy="155" r="3.5" stroke="white" stroke-width="1" opacity=".4"/>
     </svg>
   </div>
-
+ 
   <div class="hero-eyebrow" id="eyebrow"></div>
   <h1 class="hero-hed" id="hero-hed"></h1>
   <p class="hero-sub" id="hero-sub"></p>
 </header>
-
+ 
 <!-- SCENE BANNER -->
 <div class="scene-banner">
   <svg viewBox="0 0 860 90" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
@@ -589,7 +589,7 @@ function initCanvas(){
     <text x="424" y="50" font-size="6" fill="var(--ink3)" font-family="monospace" opacity=".4">IRAN</text>
   </svg>
 </div>
-
+ 
 <!-- STAT BAR -->
 <div class="statbar reveal">
   <div class="sitem"><div class="snum a"></div><div class="slbl"></div></div>
@@ -597,27 +597,27 @@ function initCanvas(){
   <div class="sitem"><div class="snum r"></div><div class="slbl"></div></div>
   <div class="sitem"><div class="snum g"></div><div class="slbl"></div></div>
 </div>
-
+ 
 <!-- TIMELINE LABEL -->
 <div class="tl-label">
   <span class="tl-label-text">CRISIS TIMELINE</span>
   <span class="tl-label-line"></span>
 </div>
-
+ 
 <!-- TIMELINE -->
 <section class="timeline">
   <div id="tl-events"></div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer class="footer">
   <span class="ftext" id="fbrand"></span>
   <span class="ftext" id="furl" style="font-weight:400;opacity:.6"></span>
   <span class="ftext" id="floc"></span>
 </footer>
-
+ 
 </div><!-- /page-wrap -->
-
+ 
 <script>
 const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;
 setTheme(prefersDark?"dark":"light");

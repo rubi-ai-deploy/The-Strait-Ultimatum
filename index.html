@@ -3,541 +3,626 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Strait Ultimatum — US–Iran Crisis 2026</title>
+<title>The Strait Ultimatum — Timeline</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,700&family=Barlow+Condensed:wght@300;400;600&family=Barlow:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* ─── RESET ─── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 
-/* ─── TOKENS ─── */
-:root {
-  --bg-grad: linear-gradient(135deg,#fce4ec 0%,#f8bbd9 10%,#e1bee7 25%,#bbdefb 45%,#b3e5fc 60%,#c8e6c9 75%,#fff9c4 88%,#ffe0b2 100%);
-  --bg-overlay1: radial-gradient(ellipse 80% 60% at 30% 20%, rgba(255,200,200,.35) 0%, transparent 60%);
-  --bg-overlay2: radial-gradient(ellipse 70% 70% at 70% 80%, rgba(180,220,255,.3) 0%, transparent 60%);
-  --bg-overlay3: radial-gradient(ellipse 60% 50% at 80% 30%, rgba(200,200,255,.25) 0%, transparent 60%);
-  --card-bg: rgba(255,255,255,.68);
-  --card-warm: rgba(255,240,225,.82);
-  --card-cool: rgba(225,238,255,.82);
-  --card-blush: rgba(255,228,228,.82);
-  --card-sage: rgba(225,245,225,.80);
-  --card-tl: rgba(255,255,255,.68);
-  --card-border: rgba(255,255,255,.92);
-  --text-primary: rgba(0,0,0,.88);
-  --text-secondary: rgba(0,0,0,.50);
-  --text-muted: rgba(0,0,0,.38);
-  --text-label: rgba(0,0,0,.42);
-  --divider: rgba(0,0,0,.08);
-  --divider-row: rgba(0,0,0,.07);
-  --topbar-bg: rgba(255,255,255,.30);
-  --pill-bg: rgba(255,255,255,.72);
-  --pill-border: rgba(0,0,0,.15);
-  --num-amber: #b34700;
-  --num-blue: #1a5fa8;
-  --num-red: #b32020;
-  --num-green: #2a7a3a;
-  --pill-amber-bg: rgba(180,100,0,.12); --pill-amber-txt: #7a4200;
-  --pill-blue-bg: rgba(20,80,180,.10);  --pill-blue-txt: #0a3a8a;
-  --pill-red-bg: rgba(180,20,20,.10);   --pill-red-txt: #8a0a0a;
-  --pill-green-bg: rgba(30,120,50,.10); --pill-green-txt: #0a5a1a;
-  --dot-red: #c0392b; --dot-amber: #e67e22; --dot-blue: #2980b9; --dot-green: #27ae60;
+:root{
+  --bg:#0b0b0d;--bg2:#111114;--surface:#16161a;--surface2:#1e1e24;
+  --ink:#f0ede8;--ink2:#b8b4ae;--ink3:#787470;--ink4:#4a4844;
+  --rule:rgba(240,237,232,.08);--rule2:rgba(240,237,232,.14);
+  --accent:#e85d20;--accent2:#f0a030;--blue:#3a8fd4;--green:#3cb872;--red:#d43a3a;
+  --neon:#39ff6a;--spine:#2a2a30;--node:#1e1e24;
+  --node-ring:rgba(240,237,232,.15);--card:#16161a;
+  --card-border:rgba(240,237,232,.08);--tag-bg:rgba(240,237,232,.07);--nav:#0b0b0d;
+  --serif:'Bebas Neue',impact,sans-serif;
+  --body:'Barlow','Noto Sans Thai','Noto Sans SC',sans-serif;
+  --cond:'Barlow Condensed','Noto Sans Thai','Noto Sans SC',sans-serif;
+}
+[data-theme="light"]{
+  --bg:#f2efe9;--bg2:#ebe7e0;--surface:#ffffff;--surface2:#f7f4ef;
+  --ink:#181612;--ink2:#3d3a34;--ink3:#7a7570;--ink4:#b0ada8;
+  --rule:rgba(24,22,18,.09);--rule2:rgba(24,22,18,.16);
+  --accent:#c44a0c;--accent2:#c07a00;--blue:#1a6db0;--green:#1e8f50;--red:#b82020;
+  --spine:#d8d4cc;--node:#f2efe9;--node-ring:rgba(24,22,18,.2);
+  --card:#ffffff;--card-border:rgba(24,22,18,.1);--tag-bg:rgba(24,22,18,.06);--nav:#f2efe9;
 }
 
-[data-theme="dark"] {
-  --bg-grad: linear-gradient(135deg,#1a0a10 0%,#1f0d1f 18%,#0d1528 40%,#071520 60%,#0a160d 78%,#1a1800 92%,#1a0f00 100%);
-  --bg-overlay1: radial-gradient(ellipse 80% 60% at 30% 20%, rgba(120,30,50,.3) 0%, transparent 60%);
-  --bg-overlay2: radial-gradient(ellipse 70% 70% at 70% 80%, rgba(20,60,130,.3) 0%, transparent 60%);
-  --bg-overlay3: radial-gradient(ellipse 60% 50% at 80% 30%, rgba(60,30,130,.2) 0%, transparent 60%);
-  --card-bg: rgba(255,255,255,.06);
-  --card-warm: rgba(120,60,10,.25);
-  --card-cool: rgba(10,50,120,.22);
-  --card-blush: rgba(120,20,20,.22);
-  --card-sage: rgba(10,80,30,.20);
-  --card-tl: rgba(255,255,255,.055);
-  --card-border: rgba(255,255,255,.10);
-  --text-primary: rgba(255,255,255,.92);
-  --text-secondary: rgba(255,255,255,.52);
-  --text-muted: rgba(255,255,255,.32);
-  --text-label: rgba(255,255,255,.38);
-  --divider: rgba(255,255,255,.08);
-  --divider-row: rgba(255,255,255,.07);
-  --topbar-bg: rgba(0,0,0,.30);
-  --pill-bg: rgba(255,255,255,.10);
-  --pill-border: rgba(255,255,255,.18);
-  --num-amber: #f0a050;
-  --num-blue: #6aabf0;
-  --num-red: #f07070;
-  --num-green: #70d090;
-  --pill-amber-bg: rgba(240,160,80,.15); --pill-amber-txt: #f0c080;
-  --pill-blue-bg: rgba(100,180,240,.12); --pill-blue-txt: #90ccf8;
-  --pill-red-bg: rgba(240,100,100,.12);  --pill-red-txt: #f8a0a0;
-  --pill-green-bg: rgba(100,210,140,.12);--pill-green-txt: #90e8b0;
-  --dot-red: #e05050; --dot-amber: #f0a040; --dot-blue: #60a8e0; --dot-green: #50c878;
-}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);transition:background .3s,color .3s;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+body.lang-th{font-family:'Noto Sans Thai',var(--body)}
+body.lang-zh{font-family:'Noto Sans SC',var(--body)}
 
-/* ─── BASE ─── */
-body {
-  font-family: 'Barlow', 'Noto Sans Thai', 'Noto Sans SC', sans-serif;
-  background: var(--bg-grad);
-  min-height: 100vh;
-  position: relative;
-  color: var(--text-primary);
-  transition: background .4s, color .3s;
-}
-body::before {
-  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
-  background: var(--bg-overlay1), var(--bg-overlay2), var(--bg-overlay3);
-  transition: background .4s;
-}
+/* ── BG CANVAS ── */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35}
+[data-theme="light"] #bg-canvas{opacity:.18}
 
-/* ─── FONT CLASSES ─── */
-.lang-th body, body.lang-th { font-family: 'Noto Sans Thai', 'Barlow', sans-serif; }
-.lang-zh body, body.lang-zh { font-family: 'Noto Sans SC', 'Barlow', sans-serif; }
+/* ── page wrapper keeps z above canvas ── */
+.page-wrap{position:relative;z-index:1}
 
-/* ─── PAGE WRAPPER ─── */
-.page { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 0 60px; }
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:var(--nav);border-bottom:1px solid var(--rule);
+  height:52px;display:flex;align-items:center;
+  padding:0 clamp(16px,4vw,48px);gap:12px;justify-content:space-between;
+  backdrop-filter:blur(16px);
+}
+.nav-logo{font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.nav-right{display:flex;align-items:center;gap:6px}
+.nbtn{background:none;border:1px solid transparent;border-radius:4px;padding:4px 10px;cursor:pointer;font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);transition:all .15s}
+.nbtn:hover{border-color:var(--rule2);color:var(--ink)}
+.nbtn.on{background:var(--accent);color:#fff;border-color:transparent}
+.tsep{width:1px;height:18px;background:var(--rule2);margin:0 2px}
+.tbtn{background:none;border:1px solid var(--rule2);border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:transform .2s;color:var(--ink2)}
+.tbtn:hover{transform:rotate(15deg) scale(1.08)}
 
-/* ─── TOPBAR ─── */
-.topbar {
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
-  padding:16px 40px;
-  background: var(--topbar-bg);
-  border-bottom: 0.5px solid var(--divider);
-  backdrop-filter: blur(8px);
-  position:sticky; top:0; z-index:100;
-}
-.brand {
-  font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600;
-  letter-spacing:.06em; color:var(--text-muted);
-}
-.topbar-center { display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center; }
-.tag-pill {
-  background:var(--pill-bg); border:0.5px solid var(--pill-border);
-  border-radius:999px; padding:4px 14px;
-  font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
-  letter-spacing:.1em; color:var(--text-secondary);
-  display:flex; align-items:center; gap:6px;
-}
-.tag-pill .dot { width:6px; height:6px; border-radius:50%; background:var(--dot-red); display:inline-block; }
+/* ── HERO ── */
+.hero{max-width:900px;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(20px,5vw,48px) 0;position:relative;overflow:visible}
+.hero-eyebrow{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--accent)}
+.hero-hed{font-family:var(--serif);font-size:clamp(56px,9vw,120px);line-height:.95;letter-spacing:.01em;color:var(--ink);position:relative;z-index:2}
+body.lang-th .hero-hed{font-family:'Noto Sans Thai',sans-serif;font-weight:700;font-size:clamp(38px,7vw,80px);line-height:1.1}
+body.lang-zh .hero-hed{font-family:'Noto Sans SC',sans-serif;font-weight:700;font-size:clamp(42px,7vw,90px);line-height:1.05}
+.hero-hed .acc{color:var(--accent)}
+.hero-sub{font-family:var(--body);font-size:clamp(15px,1.8vw,18px);font-weight:300;line-height:1.7;color:var(--ink2);max-width:580px;margin-top:20px;padding-top:20px;border-top:1px solid var(--rule2);position:relative;z-index:2}
+body.lang-th .hero-sub,body.lang-zh .hero-sub{font-size:14px;line-height:1.8}
 
-/* controls row */
-.controls { display:flex; align-items:center; gap:6px; }
-.ctrl-btn {
-  background:var(--pill-bg); border:0.5px solid var(--pill-border);
-  border-radius:999px; padding:4px 12px; cursor:pointer;
-  font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
-  letter-spacing:.08em; color:var(--text-secondary);
-  transition: background .2s, color .2s, transform .1s;
-  white-space:nowrap;
-}
-.ctrl-btn:hover { background:rgba(128,128,128,.15); }
-.ctrl-btn:active { transform:scale(.96); }
-.ctrl-btn.active {
-  background:var(--text-primary); color:var(--bg-grad);
-  border-color:transparent;
-}
-[data-theme="dark"] .ctrl-btn.active { background:rgba(255,255,255,.88); color:#111; }
+/* hero art — radar globe, bigger, animated */
+.hero-art{position:absolute;right:clamp(-20px,0vw,0px);top:20px;pointer-events:none;z-index:1}
+[data-theme="light"] .hero-art svg{opacity:.07}
+.hero-art svg{opacity:.12}
 
-.theme-btn {
-  background:var(--pill-bg); border:0.5px solid var(--pill-border);
-  border-radius:50%; width:30px; height:30px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  font-size:14px; transition: transform .3s, background .2s;
-}
-.theme-btn:hover { transform:rotate(20deg) scale(1.1); }
+/* spinning ring animation */
+@keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes spin-rev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes pulse-ring{0%,100%{opacity:.4}50%{opacity:.9}}
+@keyframes radar-sweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes float-up{0%{transform:translateY(0) scaleX(1)}50%{transform:translateY(-4px) scaleX(.98)}100%{transform:translateY(0) scaleX(1)}}
+@keyframes dash-move{from{stroke-dashoffset:0}to{stroke-dashoffset:-24}}
+@keyframes glow-pulse{0%,100%{opacity:.6;filter:blur(0px)}50%{opacity:1;filter:blur(1px)}}
 
-/* ─── HERO GRID ─── */
-.hero-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:24px;
-  padding:48px 40px 32px; align-items:end;
-}
-.hero-eyebrow {
-  font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:400;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px;
-}
-.hero-title {
-  font-family:'Playfair Display',serif; font-weight:900;
-  font-size:clamp(44px,6vw,84px); line-height:1.0;
-  color:var(--text-primary); margin-bottom:16px;
-}
-.hero-title em { font-style:italic; font-weight:700; color:var(--num-amber); }
-.hero-sub { font-size:14px; color:var(--text-secondary); font-weight:300; line-height:1.65; max-width:340px; }
+.radar-ring1{transform-origin:160px 160px;animation:spin-slow 12s linear infinite}
+.radar-ring2{transform-origin:160px 160px;animation:spin-rev 18s linear infinite}
+.radar-sweep-line{transform-origin:160px 160px;animation:radar-sweep 4s linear infinite}
 
-/* lang tweaks */
-body.lang-th .hero-title { font-family:'Noto Sans Thai',serif; font-size:clamp(32px,5vw,64px); }
-body.lang-zh .hero-title { font-family:'Noto Sans SC',serif; font-size:clamp(32px,5vw,68px); }
-body.lang-th .hero-sub, body.lang-zh .hero-sub { font-size:13px; line-height:1.7; }
+/* ── SCENE BANNER — between hero and stats ── */
+.scene-banner{
+  max-width:900px;margin:32px auto 0;
+  padding:0 clamp(20px,5vw,48px);
+}
+.scene-banner svg{width:100%;height:auto;display:block}
 
-/* ─── STAT CARDS ─── */
-.cards-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.stat-card {
-  border:0.5px solid var(--card-border); border-radius:20px;
-  padding:24px 22px 20px; backdrop-filter:blur(12px);
-  transition: transform .2s, box-shadow .2s;
-}
-.stat-card:hover { transform:translateY(-2px); }
-.stat-card.warm  { background:var(--card-warm); }
-.stat-card.cool  { background:var(--card-cool); }
-.stat-card.blush { background:var(--card-blush); }
-.stat-card.sage  { background:var(--card-sage); }
-.card-icon { font-size:22px; margin-bottom:16px; display:block; }
-.card-num {
-  font-family:'Playfair Display',serif; font-weight:900;
-  font-size:46px; line-height:1; margin-bottom:5px;
-}
-body.lang-th .card-num, body.lang-zh .card-num { font-size:40px; }
-.card-num.amber { color:var(--num-amber); }
-.card-num.blue  { color:var(--num-blue); }
-.card-num.red   { color:var(--num-red); }
-.card-num.green { color:var(--num-green); }
-.card-label {
-  font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
-  letter-spacing:.12em; text-transform:uppercase; color:var(--text-label); margin-bottom:12px;
-}
-body.lang-th .card-label, body.lang-zh .card-label {
-  font-family:'Noto Sans Thai','Noto Sans SC',sans-serif;
-  font-size:10px; letter-spacing:.04em; text-transform:none;
-}
-.card-pill {
-  display:inline-flex; align-items:center; border-radius:999px;
-  padding:3px 10px; font-size:10px; font-weight:600;
-  letter-spacing:.06em; text-transform:uppercase; line-height:1.4;
-}
-body.lang-th .card-pill, body.lang-zh .card-pill {
-  font-family:'Noto Sans Thai','Noto Sans SC',sans-serif;
-  font-size:10px; letter-spacing:.01em; text-transform:none;
-}
-.pill-amber { background:var(--pill-amber-bg); color:var(--pill-amber-txt); }
-.pill-blue  { background:var(--pill-blue-bg);  color:var(--pill-blue-txt); }
-.pill-red   { background:var(--pill-red-bg);   color:var(--pill-red-txt); }
-.pill-green { background:var(--pill-green-bg); color:var(--pill-green-txt); }
+/* ── STAT BAR ── */
+.statbar{max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule2);border-bottom:1px solid var(--rule2)}
+.sitem{padding:22px 0;text-align:center;border-right:1px solid var(--rule)}
+.sitem:last-child{border-right:none}
+.snum{font-family:var(--serif);font-size:clamp(32px,5vw,52px);line-height:1;margin-bottom:4px}
+body.lang-th .snum,body.lang-zh .snum{font-family:var(--cond);font-weight:700;font-size:clamp(26px,4vw,40px)}
+.snum.a{color:var(--accent)}.snum.b{color:var(--blue)}.snum.r{color:var(--red)}.snum.g{color:var(--green)}
+.slbl{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);line-height:1.4}
+body.lang-th .slbl,body.lang-zh .slbl{font-family:'Noto Sans Thai','Noto Sans SC',sans-serif;font-size:10px;letter-spacing:.02em;text-transform:none}
 
-/* ─── SECTION LABEL ─── */
-.section-label {
-  font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted);
-  padding:32px 40px 14px;
-}
+/* ── TIMELINE LABEL ── */
+.tl-label{max-width:900px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(20px,5vw,48px) 0;display:flex;align-items:center;gap:16px}
+.tl-label-text{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.tl-label-line{flex:1;height:1px;background:var(--rule2)}
 
-/* ─── TIMELINE ─── */
-.tl-wrap { padding:0 40px; }
-.timeline {
-  background:var(--card-tl); border:0.5px solid var(--card-border);
-  border-radius:20px; padding:10px 28px 10px; backdrop-filter:blur(10px);
-}
-.tl-row {
-  display:grid; grid-template-columns:88px 1fr; gap:20px;
-  padding:16px 0; border-bottom:0.5px solid var(--divider-row); align-items:start;
-}
-.tl-row:last-child { border-bottom:none; }
-.tl-date {
-  font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:600;
-  letter-spacing:.06em; color:var(--text-muted); line-height:1.5; padding-top:2px;
-}
-body.lang-th .tl-date, body.lang-zh .tl-date {
-  font-family:'Noto Sans Thai','Noto Sans SC',sans-serif; font-size:11px; letter-spacing:0;
-}
-.tl-title { font-size:13px; font-weight:500; color:var(--text-primary); margin-bottom:5px; }
-.tl-desc  { font-size:12px; font-weight:300; color:var(--text-secondary); line-height:1.6; }
-body.lang-th .tl-title, body.lang-th .tl-desc,
-body.lang-zh .tl-title, body.lang-zh .tl-desc { font-size:12.5px; line-height:1.7; }
-.tl-dot {
-  display:inline-block; width:7px; height:7px; border-radius:50%;
-  margin-right:7px; vertical-align:middle; margin-top:-2px; flex-shrink:0;
-}
-.dr { background:var(--dot-red); }
-.da { background:var(--dot-amber); }
-.db { background:var(--dot-blue); }
-.dg { background:var(--dot-green); }
+/* ── TIMELINE ── */
+.timeline{max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,48px) 80px;position:relative}
 
-/* ─── FOOTER ─── */
-.footer {
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;
-  padding:24px 40px 0; border-top:0.5px solid var(--divider); margin-top:40px;
+/* spine — gradient glow */
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,transparent,var(--spine) 8%,var(--spine) 92%,transparent);
+  transform:translateX(-50%);
 }
-.footer-brand { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; letter-spacing:.06em; color:var(--text-muted); }
-.footer-url   { font-size:11px; color:var(--text-muted); opacity:.7; }
-.footer-loc   { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--text-muted); text-transform:uppercase; }
+/* neon glow layer on spine */
+.timeline::after{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:6px;
+  background:linear-gradient(to bottom,transparent,rgba(232,93,32,.12) 20%,rgba(58,143,212,.12) 50%,rgba(60,184,114,.12) 80%,transparent);
+  transform:translateX(-50%);filter:blur(4px);pointer-events:none;
+}
+[data-theme="light"] .timeline::after{display:none}
 
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(18px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-.animate { animation: fadeUp .55s ease both; }
-.d1 { animation-delay:.05s; } .d2 { animation-delay:.12s; }
-.d3 { animation-delay:.19s; } .d4 { animation-delay:.26s; }
-.d5 { animation-delay:.33s; } .d6 { animation-delay:.40s; }
-.d7 { animation-delay:.47s; } .d8 { animation-delay:.54s; }
+/* ── EVENT ── */
+.event{position:relative;display:grid;grid-template-columns:1fr 64px 1fr;align-items:start;padding:clamp(28px,4vw,48px) 0}
+.event .event-left{grid-column:1;grid-row:1}
+.event .event-node{grid-column:2;grid-row:1}
+.event .event-right{grid-column:3;grid-row:1;display:none}
+.event.flip .event-left{grid-column:1;display:none}
+.event.flip .event-node{grid-column:2}
+.event.flip .event-right{grid-column:3;display:block}
 
-/* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  .topbar { padding:14px 20px; }
-  .brand { display:none; }
-  .hero-grid { grid-template-columns:1fr; padding:32px 20px 24px; gap:28px; }
-  .hero-sub { max-width:100%; }
-  .cards-grid { grid-template-columns:1fr 1fr; }
-  .section-label { padding:24px 20px 12px; }
-  .tl-wrap { padding:0 20px; }
-  .timeline { padding:8px 18px 8px; }
-  .footer { padding:20px 20px 0; }
+/* node */
+.event-node{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:2;padding-top:4px}
+.node-icon{width:52px;height:52px;border-radius:50%;border:2px solid var(--node-ring);background:var(--node);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s,box-shadow .3s;position:relative}
+.event:hover .node-icon{transform:scale(1.1)}
+.node-icon.red   {border-color:var(--red);   box-shadow:0 0 0 4px rgba(212,58,58,.08),0 0 20px rgba(212,58,58,.3)}
+.node-icon.amber {border-color:var(--accent2);box-shadow:0 0 0 4px rgba(240,160,48,.08),0 0 20px rgba(240,160,48,.25)}
+.node-icon.blue  {border-color:var(--blue);  box-shadow:0 0 0 4px rgba(58,143,212,.08),0 0 20px rgba(58,143,212,.25)}
+.node-icon.green {border-color:var(--green); box-shadow:0 0 0 4px rgba(60,184,114,.08),0 0 20px rgba(60,184,114,.25)}
+[data-theme="light"] .node-icon{box-shadow:none!important}
+/* pulse ring on hover */
+.node-icon::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid currentColor;opacity:0;transition:opacity .3s}
+.event:hover .node-icon::after{opacity:.3}
+
+/* card padding */
+.event-left{padding:0 clamp(12px,2.5vw,28px) 0 0}
+.event-right{padding:0 0 0 clamp(12px,2.5vw,28px)}
+
+/* card */
+.event-card{
+  background:var(--card);border:1px solid var(--card-border);border-radius:12px;
+  padding:clamp(16px,2.5vw,24px);position:relative;
+  transition:border-color .2s,box-shadow .2s;
+  overflow:hidden;
 }
-@media (max-width: 560px) {
-  .topbar { gap:8px; flex-direction:column; align-items:flex-start; }
-  .topbar-center { width:100%; }
-  .controls { width:100%; justify-content:flex-start; }
-  .hero-title { font-size:clamp(36px,10vw,56px); }
-  .cards-grid { grid-template-columns:1fr 1fr; gap:10px; }
-  .stat-card { padding:18px 14px 16px; }
-  .card-num { font-size:36px; }
-  .tl-row { grid-template-columns:72px 1fr; gap:12px; }
-  .tl-date { font-size:11px; }
-  .footer { flex-direction:column; align-items:flex-start; gap:4px; }
-  .footer-url { display:none; }
+.event:hover .event-card{border-color:var(--rule2);box-shadow:0 8px 32px rgba(0,0,0,.18)}
+[data-theme="light"] .event:hover .event-card{box-shadow:0 4px 20px rgba(0,0,0,.08)}
+
+/* card watermark art */
+.card-watermark{
+  position:absolute;right:-10px;bottom:-10px;
+  opacity:.04;pointer-events:none;z-index:0;
+  transition:opacity .3s;
 }
-@media (max-width: 380px) {
-  .cards-grid { grid-template-columns:1fr; }
+.event:hover .card-watermark{opacity:.07}
+[data-theme="light"] .card-watermark{opacity:.03}
+[data-theme="light"] .event:hover .card-watermark{opacity:.05}
+
+/* card content above watermark */
+.ev-date,.ev-hed,.ev-body,.ev-stat,.ev-tags{position:relative;z-index:1}
+
+/* arrow nubs */
+.event-left .event-card::after{content:'';position:absolute;right:-8px;top:24px;width:10px;height:10px;background:var(--card);border-top:1px solid var(--card-border);border-right:1px solid var(--card-border);transform:rotate(45deg);z-index:2}
+.event-right .event-card::before{content:'';position:absolute;left:-8px;top:24px;width:10px;height:10px;background:var(--card);border-bottom:1px solid var(--card-border);border-left:1px solid var(--card-border);transform:rotate(45deg);z-index:2}
+
+/* date */
+.ev-date{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+body.lang-th .ev-date,body.lang-zh .ev-date{letter-spacing:.04em;text-transform:none}
+
+/* headline */
+.ev-hed{font-family:var(--serif);font-size:clamp(22px,3vw,32px);line-height:1.05;color:var(--ink);margin-bottom:10px}
+body.lang-th .ev-hed{font-family:'Noto Sans Thai',sans-serif;font-weight:700;font-size:clamp(18px,2.5vw,24px);line-height:1.25}
+body.lang-zh .ev-hed{font-family:'Noto Sans SC',sans-serif;font-weight:700;font-size:clamp(18px,2.5vw,26px);line-height:1.15}
+.ev-hed .accent{color:var(--accent)}.ev-hed .blue{color:var(--blue)}.ev-hed .green{color:var(--green)}.ev-hed .amber{color:var(--accent2)}
+
+/* body — neon in dark */
+.ev-body{font-size:clamp(13px,1.5vw,14.5px);font-weight:400;line-height:1.72;color:var(--ink2);margin-bottom:12px}
+:root .ev-body{color:#39ff6a;text-shadow:0 0 8px rgba(57,255,106,.18)}
+[data-theme="light"] .ev-body{color:var(--ink2);text-shadow:none}
+body.lang-th .ev-body,body.lang-zh .ev-body{font-size:13px;line-height:1.8}
+
+/* stat strip */
+.ev-stat{display:flex;align-items:baseline;gap:6px;margin:12px 0;padding:10px 14px;background:var(--surface2);border-radius:6px;border-left:3px solid var(--accent)}
+.ev-stat.blue{border-left-color:var(--blue)}.ev-stat.green{border-left-color:var(--green)}.ev-stat.amber{border-left-color:var(--accent2)}
+.ev-stat-num{font-family:var(--serif);font-size:28px;line-height:1;color:var(--accent)}
+body.lang-th .ev-stat-num,body.lang-zh .ev-stat-num{font-family:var(--cond);font-weight:700}
+.ev-stat.blue .ev-stat-num{color:var(--blue)}.ev-stat.green .ev-stat-num{color:var(--green)}.ev-stat.amber .ev-stat-num{color:var(--accent2)}
+.ev-stat-lbl{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+body.lang-th .ev-stat-lbl,body.lang-zh .ev-stat-lbl{letter-spacing:.02em;text-transform:none}
+
+/* tags */
+.ev-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.ev-tag{background:var(--tag-bg);border-radius:3px;padding:3px 8px;font-family:var(--cond);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+body.lang-th .ev-tag,body.lang-zh .ev-tag{font-family:'Noto Sans Thai','Noto Sans SC',sans-serif;font-size:9px;letter-spacing:.02em;text-transform:none}
+
+/* ── DIVIDER ART between events ── */
+.ev-divider{display:flex;justify-content:center;align-items:center;gap:0;padding:0;position:relative;z-index:1}
+.ev-divider svg{display:block}
+
+/* ── FOOTER ── */
+.footer{max-width:900px;margin:0 auto;padding:32px clamp(20px,5vw,48px) 56px;border-top:1px solid var(--rule2);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.ftext{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.vis{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .timeline::before{left:28px;transform:none}
+  .event{grid-template-columns:56px 1fr;grid-template-rows:auto}
+  .event .event-node{grid-column:1;grid-row:1;display:flex}
+  .event .event-left{grid-column:2;grid-row:1;display:block;padding:0 0 0 16px}
+  .event .event-right{grid-column:2;grid-row:1;display:block;padding:0 0 0 16px}
+  .event.flip .event-left{grid-column:2;display:none}
+  .event.flip .event-right{grid-column:2;display:block;padding:0 0 0 16px}
+  .event.flip .event-node{grid-column:1}
+  .event-left .event-card::after,.event-right .event-card::before{display:none}
+  .scene-banner{display:none}
+  .hero-art{display:none}
+  .statbar{grid-template-columns:1fr 1fr}
+  .sitem:nth-child(2){border-right:none}
+  .sitem:nth-child(3){border-top:1px solid var(--rule)}
+  .sitem:nth-child(4){border-top:1px solid var(--rule);border-right:none}
 }
+@media(max-width:420px){nav .nav-logo{display:none}}
 </style>
 </head>
-<body>
+<body data-theme="dark">
 
-<!-- ════════════════ CONTENT DATA ════════════════ -->
+<!-- ANIMATED BG -->
+<canvas id="bg-canvas"></canvas>
+
+<div class="page-wrap">
+<!-- ═══ DATA ═══ -->
 <script>
-const CONTENT = {
-  en: {
-    pageTitle: "The Strait Ultimatum — US–Iran Crisis 2026",
-    eyebrow: "Escalation Dossier · Middle East Flashpoint",
-    heroTitle: "The <em>Strait</em><br>Ultimatum",
-    heroSub: "How a pilot rescue mission inside enemy territory escalated into a 48-hour deadline threatening to reshape the Middle East's most strategic waterway.",
-    tagPill: "US–IRAN CONFLICT · APRIL 2026",
-    brandLeft: "CrisisWatch · Strategic Intelligence",
-    brandRight: "rubi-ai-deploy.github.io",
-    sectionTimeline: "— Conflict Timeline",
-    footerBrand: "CrisisWatch · OilDomino",
-    footerUrl: "rubi-ai-deploy.github.io/oil-domino-effect",
-    footerLoc: "Middle East · April 2026",
-    cards: [
-      { icon:"✈️", num:"2", numClass:"amber", label:"Pilots Rescued", pill:"Both Recovered Safe", pillClass:"pill-green" },
-      { icon:"🛢️", num:"48h", numClass:"blue", label:"Trump's Ultimatum", pill:"Deadline: Apr 6", pillClass:"pill-blue" },
-      { icon:"🎯", num:"9", numClass:"red", label:"Iranian Casualties", pill:"During Rescue Op", pillClass:"pill-red" },
-      { icon:"🏛️", num:"30+", numClass:"green", label:"Universities Hit", pill:"Iran Claims", pillClass:"pill-amber" },
-    ],
-    timeline: [
-      { date:"Feb 28\n2026", dotClass:"dr", title:"Conflict Begins", desc:"Latest round of hostilities starts. Iran accuses US and Israel of targeting over 30 universities across Iranian territory, condemning strikes as attacks on civilian infrastructure." },
-      { date:"Apr 3\nFriday", dotClass:"dr", title:"F-15 Shot Down Over Iran", desc:"A US F-15 fighter jet is downed over Iranian territory. The pilot goes missing, triggering 24-hour surveillance protocols and an emergency rescue operation." },
-      { date:"Apr 3–5\n72 hrs", dotClass:"da", title:"Multi-Day Rescue Near Dedaj", desc:"US Special Operations Forces deploy near Dedaj. Dozens of advanced aircraft committed. Warning shots deter Iranian ground forces. Airstrikes hit Iranian convoys. A second US aircraft immobilized in sand is intentionally destroyed to deny technology capture." },
-      { date:"Apr 5\nMorning", dotClass:"dg", title:"First Pilot Recovered", desc:"Trump confirms the safe extraction of the first downed pilot — injured but alive. Described as a historic rescue inside active enemy territory." },
-      { date:"Apr 5\nLater", dotClass:"dg", title:"Second Pilot Recovered — Dual Historic Rescue", desc:"Trump announces recovery of the second pilot. First time in US military history that two pilots have been separately extracted from enemy territory during the same operation." },
-      { date:"Apr 5\nEvening", dotClass:"db", title:"Trump Issues 48-Hour Ultimatum", desc:"Trump demands Iran open the Strait of Hormuz and begin peace negotiations within 48 hours — or face severe military action by April 6, 2026." },
-      { date:"Ongoing", dotClass:"da", title:"IRGC Counter-Claims & Disputed Losses", desc:"Iran's IRGC claims to have downed a C-130, two Black Hawks, and an MQ Reaper drone. US contests the account — confirming only the intentional self-destruction of one aircraft." },
-    ]
-  },
-  th: {
-    pageTitle: "คำขาดช่องแคบฮอร์มุซ — วิกฤตอิหร่าน 2026",
-    eyebrow: "รายงานการเพิ่มความตึงเครียด · จุดอันตรายตะวันออกกลาง",
-    heroTitle: "คำขาด<em>ช่องแคบ</em><br>ฮอร์มุซ",
-    heroSub: "ภารกิจกู้นักบินในดินแดนศัตรูลุกลามกลายเป็นคำขาด 48 ชั่วโมง ที่คุกคามจะเปลี่ยนโฉมเส้นทางน้ำมันที่สำคัญที่สุดของตะวันออกกลาง",
-    tagPill: "ความขัดแย้งสหรัฐฯ–อิหร่าน · เมษายน 2026",
-    brandLeft: "CrisisWatch · ข่าวกรองยุทธศาสตร์",
-    brandRight: "rubi-ai-deploy.github.io",
-    sectionTimeline: "— ลำดับเหตุการณ์ความขัดแย้ง",
-    footerBrand: "CrisisWatch · OilDomino",
-    footerUrl: "rubi-ai-deploy.github.io/oil-domino-effect",
-    footerLoc: "ตะวันออกกลาง · เมษายน 2026",
-    cards: [
-      { icon:"✈️", num:"2", numClass:"amber", label:"นักบินที่ได้รับการช่วยเหลือ", pill:"ทั้งคู่ปลอดภัย", pillClass:"pill-green" },
-      { icon:"🛢️", num:"48ชม.", numClass:"blue", label:"คำขาดของทรัมป์", pill:"กำหนด: 6 เม.ย.", pillClass:"pill-blue" },
-      { icon:"🎯", num:"9", numClass:"red", label:"ผู้เสียชีวิตฝ่ายอิหร่าน", pill:"ระหว่างปฏิบัติการกู้ภัย", pillClass:"pill-red" },
-      { icon:"🏛️", num:"30+", numClass:"green", label:"มหาวิทยาลัยที่ถูกโจมตี", pill:"ข้อกล่าวหาของอิหร่าน", pillClass:"pill-amber" },
-    ],
-    timeline: [
-      { date:"28 ก.พ.\n2026", dotClass:"dr", title:"ความขัดแย้งเริ่มต้น", desc:"ความรุนแรงรอบล่าสุดปะทุขึ้น อิหร่านกล่าวหาสหรัฐฯ และอิสราเอลว่าโจมตีมหาวิทยาลัยกว่า 30 แห่ง ประณามว่าเป็นการโจมตีโครงสร้างพลเรือน" },
-      { date:"3 เม.ย.\nวันศุกร์", dotClass:"dr", title:"เครื่องบิน F-15 ถูกยิงตกเหนือดินแดนอิหร่าน", desc:"เครื่องบินรบ F-15 ของสหรัฐฯ ถูกยิงตกในดินแดนอิหร่าน นักบินสูญหาย กระตุ้นให้เริ่มปฏิบัติการเฝ้าระวัง 24 ชั่วโมงและภารกิจกู้ภัยฉุกเฉิน" },
-      { date:"3–5 เม.ย.\n72 ชม.", dotClass:"da", title:"ปฏิบัติการกู้ภัยหลายวันใกล้เดดัจ", desc:"กองกำลังปฏิบัติการพิเศษสหรัฐฯ ส่งกำลังใกล้เมืองเดดัจ ระดมเครื่องบินชั้นสูงหลายสิบลำ ยิงเตือนสกัดกองกำลังภาคพื้นอิหร่าน โจมตีทางอากาศขบวนรถทหารอิหร่าน และทำลายเครื่องบินที่ติดหล่มทรายเพื่อป้องกันการสูญเสียเทคโนโลยี" },
-      { date:"5 เม.ย.\nเช้า", dotClass:"dg", title:"กู้นักบินคนแรกสำเร็จ", desc:"ทรัมป์ยืนยันการนำนักบินคนแรกออกมาได้อย่างปลอดภัย บาดเจ็บแต่รอดชีวิต ถูกบรรยายว่าเป็นการช่วยเหลือประวัติศาสตร์ในดินแดนศัตรู" },
-      { date:"5 เม.ย.\nบ่าย", dotClass:"dg", title:"กู้นักบินคนที่สอง — ภารกิจคู่ประวัติศาสตร์", desc:"ทรัมป์ประกาศกู้นักบินคนที่สองสำเร็จ เป็นครั้งแรกในประวัติศาสตร์ทหารสหรัฐฯ ที่สามารถช่วยนักบิน 2 คน แยกกันออกมาจากดินแดนศัตรูในปฏิบัติการเดียวกัน" },
-      { date:"5 เม.ย.\nค่ำ", dotClass:"db", title:"ทรัมป์ออกคำขาด 48 ชั่วโมง", desc:"ทรัมป์เรียกร้องให้อิหร่านเปิดช่องแคบฮอร์มุซและเริ่มการเจรจาสันติภาพภายใน 48 ชั่วโมง มิฉะนั้นจะเผชิญมาตรการทางทหารที่รุนแรงภายในวันที่ 6 เมษายน 2026" },
-      { date:"ต่อเนื่อง", dotClass:"da", title:"ข้อกล่าวอ้างต่อต้านของ IRGC และความเสียหายที่โต้แย้ง", desc:"กองกำลัง IRGC ของอิหร่านอ้างว่ายิงตก C-130 เฮลิคอปเตอร์แบล็คฮอว์ก 2 ลำ และโดรน MQ Reaper สหรัฐฯ โต้แย้งบัญชีนี้ ยืนยันเพียงการทำลายเครื่องบินหนึ่งลำโดยเจตนา" },
-    ]
-  },
-  zh: {
-    pageTitle: "霍尔木兹海峡最后通牒 — 美伊危机2026",
-    eyebrow: "升级档案 · 中东危机引爆点",
-    heroTitle: "<em>海峡</em><br>最后通牒",
-    heroSub: "一场在敌方领土内的飞行员救援任务，如何演变为48小时最后通牒，威胁重塑中东最具战略意义的水道。",
-    tagPill: "美伊冲突 · 2026年4月",
-    brandLeft: "CrisisWatch · 战略情报",
-    brandRight: "rubi-ai-deploy.github.io",
-    sectionTimeline: "— 冲突时间线",
-    footerBrand: "CrisisWatch · OilDomino",
-    footerUrl: "rubi-ai-deploy.github.io/oil-domino-effect",
-    footerLoc: "中东地区 · 2026年4月",
-    cards: [
-      { icon:"✈️", num:"2", numClass:"amber", label:"获救飞行员", pill:"两人均安全返回", pillClass:"pill-green" },
-      { icon:"🛢️", num:"48小时", numClass:"blue", label:"特朗普最后通牒", pill:"截止日：4月6日", pillClass:"pill-blue" },
-      { icon:"🎯", num:"9", numClass:"red", label:"伊朗方面伤亡", pill:"救援行动期间", pillClass:"pill-red" },
-      { icon:"🏛️", num:"30+", numClass:"green", label:"被袭高校数量", pill:"伊朗声称", pillClass:"pill-amber" },
-    ],
-    timeline: [
-      { date:"2026年\n2月28日", dotClass:"dr", title:"冲突开始", desc:"最新一轮敌对行动爆发。伊朗指责美国和以色列袭击伊朗境内30余所大学，谴责此举是对平民基础设施的攻击。" },
-      { date:"4月3日\n周五", dotClass:"dr", title:"F-15战机在伊朗上空被击落", desc:"一架美国F-15战斗机在伊朗领土上空被击落，飞行员失联，随即触发24小时监视协议和紧急救援行动。" },
-      { date:"4月3–5日\n72小时", dotClass:"da", title:"在代达杰附近的多日救援行动", desc:"美国特种作战部队在代达杰附近部署。数十架先进飞机投入行动，警告射击阻止伊朗地面部队，对逼近的伊朗车队实施空袭。一架陷入沙地的美军飞机被主动摧毁以防止技术泄露。" },
-      { date:"4月5日\n上午", dotClass:"dg", title:"第一名飞行员获救", desc:"特朗普证实第一名被击落飞行员安全撤出——受伤但生还。被称为在活跃敌方领土内的历史性救援行动。" },
-      { date:"4月5日\n稍后", dotClass:"dg", title:"第二名飞行员获救——双重历史性救援", desc:"特朗普宣布第二名飞行员成功获救，为美国军事史上首次在同一行动中分别从敌方领土救出两名飞行员。" },
-      { date:"4月5日\n傍晚", dotClass:"db", title:"特朗普发出48小时最后通牒", desc:"特朗普要求伊朗在48小时内开放霍尔木兹海峡并开始和平谈判，否则将于2026年4月6日前遭到严厉军事打击。" },
-      { date:"持续中", dotClass:"da", title:"伊朗革命卫队反击声明及争议损失", desc:"伊朗革命卫队声称击落一架C-130运输机、两架黑鹰直升机及一架MQ死神无人机。美方对此提出异议，仅承认主动销毁了一架本国飞机。" },
-    ]
-  }
+const DATA={
+en:{
+  eyebrow:"Middle East Crisis · April 2026",
+  hed:["THE","STRAIT","ULTIMATUM"],
+  sub:"A downed F-15 over Iran. A 72-hour rescue. Two pilots pulled from enemy territory. And a 48-hour deadline that could close the world's most critical oil passage.",
+  stats:[
+    {n:"2",c:"a",l:"Pilots Rescued"},{n:"48H",c:"b",l:"Ultimatum Deadline"},
+    {n:"9",c:"r",l:"Iranian Casualties"},{n:"30+",c:"g",l:"Universities Struck"},
+  ],
+  events:[
+    {side:"left",dot:"red",date:"FEB 28, 2026",hed:"THE WAR<br><span class='accent'>REIGNITES</span>",body:"Without warning, Iran announced that US and Israeli forces had struck more than 30 universities — libraries, labs, and lecture halls reduced to rubble. Tehran condemned it as an assault on the nation's intellectual soul. The IRGC began repositioning forces along the western frontier.",stat:{n:"30+",c:"",l:"Universities Destroyed"},tags:["CONFLICT BEGINS","IRAN","UNIVERSITIES","IRGC RESPONSE"]},
+    {side:"right",dot:"red",date:"APR 3, 2026 — FRIDAY",hed:"JET DOWN OVER<br><span class='accent'>ENEMY TERRITORY</span>",body:"An F-15 on a classified mission deep inside Iranian airspace was hit and brought down. The pilot ejected, landing near Dedaj — a region swarming with IRGC patrols. Within minutes, US Central Command locked onto his signal. The rescue clock started.",stat:{n:"1",c:"",l:"Pilot Missing in Iran"},tags:["F-15 SHOT DOWN","DEDAJ","CLASSIFIED MISSION","SAR TRIGGERED"]},
+    {side:"left",dot:"amber",date:"APR 3–5, 2026 — 72 HRS",hed:"THREE DAYS<br><span class='amber'>IN THE DARK</span>",body:"Special Operations Forces moved in under cover. Dozens of advanced aircraft ran non-stop surveillance. Warning shots pushed IRGC patrols back. US airstrikes hit Iranian convoys closing in on the pilots. A second US aircraft, immobilized in sand, was destroyed by its own crew to deny the enemy any technology.",stat:{n:"9",c:"r",l:"Iranian Soldiers Killed"},statc:"",tags:["SOF DEPLOYED","AIRSTRIKES","IRGC CONVOYS","TECH DENIAL"]},
+    {side:"right",dot:"green",date:"APR 5 — MORNING",hed:"PILOT ONE:<br><span class='green'>EXTRACTED</span>",body:"The first pilot — injured but alive — was pulled from Iranian territory in the early hours of April 5. President Trump announced it publicly, calling it historic. But there was still a second pilot out there.",stat:{n:"1/2",c:"g",l:"Pilots Home Safe"},statc:"green",tags:["HISTORIC RESCUE","PILOT RECOVERED","SOF SUCCESS"]},
+    {side:"left",dot:"green",date:"APR 5 — AFTERNOON",hed:"PILOT TWO:<br><span class='green'>AGAINST ALL ODDS</span>",body:"Hours later, the second pilot was extracted from a separate location. Trump called it the first time in American military history that two pilots had been separately rescued from enemy territory in a single operation. Zero US fatalities. The IRGC disputed losses; US denied the account.",stat:{n:"2/2",c:"g",l:"Both Pilots Safe"},statc:"green",tags:["DUAL RESCUE","US MILITARY HISTORY","IRGC CLAIMS DISPUTED"]},
+    {side:"right",dot:"blue",date:"APR 5 — EVENING",hed:"48 HOURS OR<br><span class='blue'>FACE WHAT COMES</span>",body:"With both pilots safe, Trump issued the ultimatum. Open the Strait of Hormuz. Begin peace talks. Or face a military response of unprecedented severity by April 6. One-fifth of the world's daily oil flows through this 34km-wide passage. A closure would fracture global markets within days.",stat:{n:"48H",c:"b",l:"To Open Strait or Face War"},statc:"blue",tags:["ULTIMATUM","STRAIT OF HORMUZ","APRIL 6 DEADLINE","GLOBAL OIL RISK"]},
+  ],
+  footer:{brand:"CrisisWatch · OilDomino",url:"rubi-ai-deploy.github.io/oil-domino-effect",loc:"Thailand · April 2026"}
+},
+th:{
+  eyebrow:"วิกฤตตะวันออกกลาง · เมษายน 2569",
+  hed:["คำขาด","ช่องแคบ","ฮอร์มุซ"],
+  sub:"F-15 ถูกยิงตกเหนืออิหร่าน ปฏิบัติการกู้ภัย 72 ชั่วโมง นักบินสองคนถูกนำออกจากดินแดนศัตรู และคำขาด 48 ชั่วโมงที่อาจปิดเส้นทางน้ำมันที่สำคัญที่สุดของโลก",
+  stats:[
+    {n:"2",c:"a",l:"นักบินที่ได้รับการช่วยเหลือ"},{n:"48ชม.",c:"b",l:"กำหนดคำขาด"},
+    {n:"9",c:"r",l:"ผู้เสียชีวิตฝ่ายอิหร่าน"},{n:"30+",c:"g",l:"มหาวิทยาลัยที่ถูกโจมตี"},
+  ],
+  events:[
+    {side:"left",dot:"red",date:"28 ก.พ. 2569",hed:"สงคราม<br><span class='accent'>ปะทุอีกครั้ง</span>",body:"โดยไม่มีสัญญาณเตือน อิหร่านประกาศว่ากองกำลังสหรัฐฯ และอิสราเอลโจมตีมหาวิทยาลัยกว่า 30 แห่งทั่วประเทศ ห้องสมุด ห้องปฏิบัติการ และห้องบรรยายถูกทำลายเป็นซากปรักหักพัง IRGC เริ่มส่งกำลังพลไปตามแนวพรมแดนด้านตะวันตก",stat:{n:"30+",c:"",l:"มหาวิทยาลัยถูกทำลาย"},tags:["ความขัดแย้งเริ่มต้น","อิหร่าน","มหาวิทยาลัย","IRGC"]},
+    {side:"right",dot:"red",date:"3 เม.ย. 2569 — วันศุกร์",hed:"เครื่องบินตกใน<br><span class='accent'>ดินแดนศัตรู</span>",body:"F-15 ที่ปฏิบัติภารกิจลับในน่านฟ้าอิหร่านถูกยิงตก นักบินดีดตัวออกมาได้ ลงจอดใกล้เมืองเดดัจ ซึ่งมีหน่วยลาดตระเวน IRGC เต็มพื้นที่ กองบัญชาการกลางสหรัฐฯ ติดตามสัญญาณของเขาได้ภายในไม่กี่นาที",stat:{n:"1",c:"",l:"นักบินสูญหายในอิหร่าน"},tags:["F-15 ถูกยิงตก","เดดัจ","ภารกิจลับ","เริ่มค้นหา"]},
+    {side:"left",dot:"amber",date:"3–5 เม.ย. 2569 — 72 ชั่วโมง",hed:"สามวัน<br><span class='amber'>ในความมืด</span>",body:"กองกำลังปฏิบัติการพิเศษเคลื่อนเข้าไปภายใต้การปกปิด เครื่องบินชั้นสูงหลายสิบลำทำการเฝ้าระวังตลอด 24 ชั่วโมง การยิงเตือนสกัดกั้นลาดตระเวน IRGC การโจมตีทางอากาศโจมตีขบวนรถอิหร่าน",stat:{n:"9",c:"r",l:"ทหารอิหร่านเสียชีวิต"},statc:"",tags:["SOF ปฏิบัติการ","โจมตีทางอากาศ","ขบวนรถ IRGC","ปฏิเสธเทคโนโลยี"]},
+    {side:"right",dot:"green",date:"5 เม.ย. — เช้า",hed:"นักบินหนึ่ง:<br><span class='green'>ปลอดภัยแล้ว</span>",body:"นักบินคนแรก บาดเจ็บแต่มีชีวิตอยู่ ถูกนำออกจากดินแดนอิหร่านในช่วงเช้าของวันที่ 5 เมษายน ทรัมป์ประกาศเรื่องนี้ต่อสาธารณะ เรียกมันว่าเป็นประวัติศาสตร์",stat:{n:"1/2",c:"g",l:"นักบินกลับบ้านปลอดภัย"},statc:"green",tags:["กู้ภัยประวัติศาสตร์","นักบินถูกกู้ภัย","SOF สำเร็จ"]},
+    {side:"left",dot:"green",date:"5 เม.ย. — บ่าย",hed:"นักบินสอง:<br><span class='green'>สวนกระแสโชคชะตา</span>",body:"หลายชั่วโมงต่อมา นักบินคนที่สองถูกนำออกจากตำแหน่งแยกกัน ทรัมป์เรียกสิ่งนี้ว่าเป็นครั้งแรกในประวัติศาสตร์ทหารอเมริกัน ไม่มีผู้เสียชีวิตฝ่ายสหรัฐฯ",stat:{n:"2/2",c:"g",l:"นักบินทั้งคู่ปลอดภัย"},statc:"green",tags:["กู้ภัยคู่","ประวัติศาสตร์สหรัฐฯ","โต้แย้งข้ออ้าง IRGC"]},
+    {side:"right",dot:"blue",date:"5 เม.ย. — ค่ำ",hed:"48 ชั่วโมง<br><span class='blue'>หรือเผชิญสงคราม</span>",body:"เมื่อนักบินทั้งคู่ปลอดภัยแล้ว ทรัมป์ออกคำขาด เปิดช่องแคบฮอร์มุซ เริ่มการเจรจาสันติภาพ หรือเผชิญการตอบโต้ทางทหารที่รุนแรงที่สุดภายในวันที่ 6 เมษายน น้ำมันหนึ่งในห้าของโลกไหลผ่านช่องแคบนี้ทุกวัน",stat:{n:"48ชม.",c:"b",l:"เปิดช่องแคบหรือเผชิญสงคราม"},statc:"blue",tags:["คำขาด","ช่องแคบฮอร์มุซ","กำหนด 6 เมษายน","ความเสี่ยงน้ำมันโลก"]},
+  ],
+  footer:{brand:"CrisisWatch · OilDomino",url:"rubi-ai-deploy.github.io/oil-domino-effect",loc:"ประเทศไทย · เมษายน 2569"}
+},
+zh:{
+  eyebrow:"中东危机 · 2026年4月",
+  hed:["海峡","最后","通牒"],
+  sub:"F-15在伊朗上空被击落，72小时营救行动，两名飞行员从敌方领土撤出，以及一道可能封锁全球最关键石油通道的48小时最后通牒。",
+  stats:[
+    {n:"2",c:"a",l:"获救飞行员"},{n:"48小时",c:"b",l:"最后通牒期限"},
+    {n:"9",c:"r",l:"伊朗方面伤亡"},{n:"30+",c:"g",l:"被袭高校数量"},
+  ],
+  events:[
+    {side:"left",dot:"red",date:"2026年2月28日",hed:"战火<br><span class='accent'>再度燃起</span>",body:"毫无预兆，伊朗宣布美以军队袭击了全国逾三十所大学，图书馆、实验室和讲堂化为废墟。德黑兰谴责这是对国家智识灵魂的侵犯。伊斯兰革命卫队开始在西部边境重新部署兵力。",stat:{n:"30+",c:"",l:"大学遭到摧毁"},tags:["冲突开始","伊朗","大学","革命卫队"]},
+    {side:"right",dot:"red",date:"2026年4月3日 星期五",hed:"战机坠落<br><span class='accent'>敌方领土</span>",body:"一架执行机密任务的F-15在伊朗领空深处被击中坠落，飞行员弹射逃生，降落在代达杰附近——该地区布满革命卫队巡逻队。美国中央司令部在几分钟内锁定了他的信号。",stat:{n:"1",c:"",l:"飞行员在伊朗失联"},tags:["F-15被击落","代达杰","机密任务","搜救"]},
+    {side:"left",dot:"amber",date:"2026年4月3–5日 72小时",hed:"黑暗中的<br><span class='amber'>七十二小时</span>",body:"特种作战部队在掩护下推进。数十架先进飞机持续进行24小时监视。警告射击逼退革命卫队巡逻队。美军对逼近飞行员位置的伊朗车队实施空袭。另一架飞机被亲手摧毁以防技术泄露。",stat:{n:"9",c:"r",l:"伊朗士兵阵亡"},statc:"",tags:["特种部队","空袭","革命卫队车队","技术销毁"]},
+    {side:"right",dot:"green",date:"2026年4月5日 上午",hed:"飞行员一号:<br><span class='green'>已撤出</span>",body:"4月5日清晨，第一名飞行员——受伤但生还——被从伊朗领土成功救出。特朗普总统公开宣布这一消息，称之为历史性壮举。但第二名飞行员仍在那里。",stat:{n:"1/2",c:"g",l:"飞行员安全归来"},statc:"green",tags:["历史性救援","飞行员获救","特种部队成功"]},
+    {side:"left",dot:"green",date:"2026年4月5日 下午",hed:"飞行员二号:<br><span class='green'>逆天改命</span>",body:"数小时后，第二名飞行员从另一地点被成功救出。特朗普称这是美国军事史上首次在同一行动中分别从敌方领土救出两名飞行员。美方零伤亡。",stat:{n:"2/2",c:"g",l:"两名飞行员均安全"},statc:"green",tags:["双重救援","美军历史","革命卫队声明存疑"]},
+    {side:"right",dot:"blue",date:"2026年4月5日 傍晚",hed:"48小时<br><span class='blue'>否则后果自负</span>",body:"两名飞行员均安全后，特朗普发出最后通牒。开放霍尔木兹海峡，开始和平谈判，否则将于4月6日前遭受前所未有的军事打击。全球每天约五分之一的石油流经这条34公里宽的通道。",stat:{n:"48H",c:"b",l:"开放海峡或面临战争"},statc:"blue",tags:["最后通牒","霍尔木兹海峡","4月6日截止","全球油价风险"]},
+  ],
+  footer:{brand:"CrisisWatch · OilDomino",url:"rubi-ai-deploy.github.io/oil-domino-effect",loc:"泰国 · 2026年4月"}
+}
 };
 
-let currentLang = 'en';
-let currentTheme = 'light';
+/* ── CARD WATERMARKS — large SVG art per event ── */
+const WATERMARKS=[
+  /* 0 university / flames */
+  `<svg width="160" height="160" viewBox="0 0 160 160" fill="none"><path d="M80 10L20 50v10h10v70H20v10h120v-10h-10V60h10V50L80 10z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M55 130V80h50v50" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M130 30l14 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="136" cy="22" r="10" fill="var(--red)" opacity=".6"/><path d="M130 22 Q133 12 140 15 Q136 22 142 26 Q134 28 130 22z" fill="var(--accent2)" opacity=".7"/></svg>`,
+  /* 1 fighter jet */
+  `<svg width="160" height="160" viewBox="0 0 160 160" fill="none"><path d="M80 20L48 80l-28 12 18 6-6 24 24-12 12 24 18-54 18 54 12-24 24 12-6-24 18-6-28-12L80 20z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M62 108l18-48 18 48" stroke="currentColor" stroke-width="2" opacity=".4"/><circle cx="122" cy="42" r="12" fill="var(--red)" opacity=".5"/><path d="M114 42 L132 30" stroke="var(--red)" stroke-width="3" stroke-linecap="round" opacity=".7"/><path d="M110 50 Q120 44 130 38" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round" opacity=".5" stroke-dasharray="4 3"/></svg>`,
+  /* 2 hourglass + crosshair */
+  `<svg width="160" height="160" viewBox="0 0 160 160" fill="none"><circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="1.5" opacity=".3"/><circle cx="80" cy="80" r="50" stroke="currentColor" stroke-width="1" opacity=".2"/><line x1="10" y1="80" x2="150" y2="80" stroke="currentColor" stroke-width="1" opacity=".3"/><line x1="80" y1="10" x2="80" y2="150" stroke="currentColor" stroke-width="1" opacity=".3"/><path d="M38 20h84M38 140h84M48 20v36l32 24-32 24v36M112 20v36l-32 24 32 24v36" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="80" cy="80" r="10" fill="var(--accent2)" opacity=".6"/></svg>`,
+  /* 3 parachute + figure */
+  `<svg width="160" height="160" viewBox="0 0 160 160" fill="none"><path d="M80 22C44 22 16 50 16 84h128C144 50 116 22 80 22z" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M48 84l32 50 32-50" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M16 84h28M116 84h28M80 22v24" stroke="currentColor" stroke-width="2" opacity=".4" stroke-linecap="round"/><circle cx="80" cy="138" r="8" fill="var(--green)" opacity=".7"/><path d="M72 84 L80 84 L88 84" stroke="currentColor" stroke-width="1.5" opacity=".3"/><path d="M48 84 L80 30" stroke="currentColor" stroke-width="1" opacity=".3" stroke-dasharray="6 4"/><path d="M112 84 L80 30" stroke="currentColor" stroke-width="1" opacity=".3" stroke-dasharray="6 4"/></svg>`,
+  /* 4 star burst + shield */
+  `<svg width="160" height="160" viewBox="0 0 160 160" fill="none"><path d="M80 16l16 44h46l-37 27 14 44L80 108l-39 23 14-44L18 60h46L80 16z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M80 16l16 44h46l-37 27 14 44L80 108l-39 23 14-44L18 60h46L80 16z" fill="var(--green)" opacity=".08"/><circle cx="80" cy="80" r="16" fill="var(--green)" opacity=".25"/><circle cx="80" cy="80" r="6" fill="var(--green)" opacity=".7"/><path d="M54 24L26 40M106 24L134 40M28 116L54 100M106 100L132 116" stroke="currentColor" stroke-width="1" opacity=".2" stroke-linecap="round"/></svg>`,
+  /* 5 clock + warning triangle */
+  `<svg width="160" height="160" viewBox="0 0 160 160" fill="none"><circle cx="80" cy="88" r="56" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M80 56v34l22 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M62 12h36M80 12v18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M44 34L30 46M116 34L130 46" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/><path d="M30 14L80 6 130 14" stroke="currentColor" stroke-width="1" opacity=".2"/><path d="M80 6 L140 26 130 46" stroke="var(--accent)" stroke-width="1.5" opacity=".3" stroke-dasharray="4 3"/></svg>`,
+];
 
-function setLang(lang) {
-  currentLang = lang;
-  document.body.className = 'lang-' + lang;
-  const d = CONTENT[lang];
-  document.title = d.pageTitle;
+/* ── NODE ICONS ── */
+const ICONS=[
+  `<svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2L3 8v2h2v10H3v2h20v-2h-2V10h2V8L13 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 20V14h6v6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="20" cy="3.5" r="2" fill="var(--red)" opacity=".9"/></svg>`,
+  `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L8 14l-5 2 3 1-1 4 4-2 2 4 3-9 3 9 2-4 4 2-1-4 3-1-5-2L14 4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="20" cy="8" r="2.5" fill="var(--red)" opacity=".85"/><path d="M18.5 8 L22 6" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" opacity=".7"/></svg>`,
+  `<svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M6 3h14M6 23h14M8 3v6l5 4-5 4v6M18 3v6l-5 4 5 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="13" r="2" fill="var(--accent2)" opacity=".9"/></svg>`,
+  `<svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 4C7.477 4 3 8.477 3 14h20C23 8.477 18.523 4 13 4z" stroke="currentColor" stroke-width="1.5"/><path d="M8 14l5 8 5-8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="13" cy="22" r="1.5" fill="var(--green)" opacity=".9"/></svg>`,
+  `<svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 3l2.5 7h7.5l-6 4.5 2.3 7L13 18l-6.3 3.5 2.3-7L3 10h7.5L13 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 3l2.5 7h7.5l-6 4.5 2.3 7L13 18l-6.3 3.5 2.3-7L3 10h7.5L13 3z" fill="var(--green)" opacity=".15"/><circle cx="13" cy="13" r="2" fill="var(--green)" opacity=".8"/></svg>`,
+  `<svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="14" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M13 9v5.5l3.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10 2h6M13 2v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9 5.5l1.5 1.5M17 5.5L15.5 7" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" opacity=".8"/></svg>`,
+];
 
-  // topbar
-  document.getElementById('brand-left').textContent = d.brandLeft;
-  document.getElementById('brand-right').textContent = d.brandRight;
-  document.getElementById('tag-pill-text').textContent = d.tagPill;
+/* ── DIVIDER ARTS between events ── */
+const DIVIDERS=[
+  /* missile trail */
+  `<svg width="400" height="32" viewBox="0 0 400 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+    <line x1="0" y1="16" x2="400" y2="16" stroke="var(--rule)" stroke-width="1"/>
+    <path d="M160 16 L230 8 L280 16" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 3" opacity=".4"/>
+    <circle cx="280" cy="16" r="3" fill="var(--accent)" opacity=".5"/>
+    <path d="M270 16 L280 12 L285 16 L280 20 Z" fill="var(--accent)" opacity=".4"/>
+  </svg>`,
+  /* radar ping */
+  `<svg width="400" height="32" viewBox="0 0 400 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+    <line x1="0" y1="16" x2="400" y2="16" stroke="var(--rule)" stroke-width="1"/>
+    <circle cx="200" cy="16" r="12" stroke="var(--blue)" stroke-width="1" opacity=".3"/>
+    <circle cx="200" cy="16" r="6" stroke="var(--blue)" stroke-width="1" opacity=".4"/>
+    <circle cx="200" cy="16" r="2.5" fill="var(--blue)" opacity=".6"/>
+  </svg>`,
+  /* crosshair slash */
+  `<svg width="400" height="32" viewBox="0 0 400 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+    <line x1="0" y1="16" x2="400" y2="16" stroke="var(--rule)" stroke-width="1"/>
+    <path d="M170 6 L230 26" stroke="var(--accent2)" stroke-width="1.5" opacity=".35"/>
+    <path d="M230 6 L170 26" stroke="var(--accent2)" stroke-width="1.5" opacity=".35"/>
+    <circle cx="200" cy="16" r="8" stroke="var(--accent2)" stroke-width="1" opacity=".3"/>
+  </svg>`,
+  /* chevron right */
+  `<svg width="400" height="32" viewBox="0 0 400 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+    <line x1="0" y1="16" x2="400" y2="16" stroke="var(--rule)" stroke-width="1"/>
+    <path d="M186 8 L200 16 L186 24" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
+    <path d="M198 8 L212 16 L198 24" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".3"/>
+  </svg>`,
+  /* star burst */
+  `<svg width="400" height="32" viewBox="0 0 400 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+    <line x1="0" y1="16" x2="400" y2="16" stroke="var(--rule)" stroke-width="1"/>
+    <path d="M200 8l2 5h5l-4 3 1.5 5L200 18l-4.5 3 1.5-5-4-3h5z" fill="var(--green)" opacity=".5"/>
+  </svg>`,
+];
 
-  // lang buttons
-  ['en','th','zh'].forEach(l => {
-    document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+const DOT_COLORS={red:"var(--red)",amber:"var(--accent2)",blue:"var(--blue)",green:"var(--green)"};
+let lang="en",theme="dark";
+
+function render(l){
+  lang=l;
+  const d=DATA[l];
+  document.body.className=l==="en"?"":("lang-"+l);
+  document.documentElement.lang=l;
+  ["en","th","zh"].forEach(x=>document.getElementById("lb-"+x).classList.toggle("on",x===l));
+  document.getElementById("eyebrow").textContent=d.eyebrow;
+  const hedEl=document.getElementById("hero-hed");
+  hedEl.innerHTML=d.hed.map((w,i)=>i===1?`<span class="acc">${w}</span>`:w).join("<br>");
+  document.getElementById("hero-sub").textContent=d.sub;
+  const si=document.querySelectorAll(".sitem");
+  d.stats.forEach((s,i)=>{si[i].querySelector(".snum").textContent=s.n;si[i].querySelector(".snum").className="snum "+s.c;si[i].querySelector(".slbl").textContent=s.l});
+  const tl=document.getElementById("tl-events");
+  tl.innerHTML="";
+  d.events.forEach((ev,idx)=>{
+    const isFlip=idx%2===1;
+    const div=document.createElement("div");
+    div.className="event reveal"+(isFlip?" flip":"");
+    const statHtml=`<div class="ev-stat ${ev.statc||""}"><span class="ev-stat-num">${ev.stat.n}</span><span class="ev-stat-lbl">${ev.stat.l}</span></div>`;
+    const tagsHtml=ev.tags.map(t=>`<span class="ev-tag">${t}</span>`).join("");
+    const iconColor=DOT_COLORS[ev.dot]||"currentColor";
+    const wm=WATERMARKS[idx]||WATERMARKS[0];
+    // replace currentColor in watermark with the dot color for tinting
+    const wmTinted=wm.replace(/stroke="currentColor"/g,`stroke="${iconColor}"`);
+    const cardHtml=`
+      <div class="card-watermark">${wmTinted}</div>
+      <div class="ev-date">${ev.date}</div>
+      <h2 class="ev-hed">${ev.hed}</h2>
+      <p class="ev-body">${ev.body}</p>
+      ${statHtml}
+      <div class="ev-tags">${tagsHtml}</div>`;
+    const leftSlot=document.createElement("div");leftSlot.className="event-left";
+    if(!isFlip)leftSlot.innerHTML=`<div class="event-card">${cardHtml}</div>`;
+    const nodeSlot=document.createElement("div");nodeSlot.className="event-node";
+    nodeSlot.innerHTML=`<div class="node-icon ${ev.dot}" style="color:${iconColor}">${ICONS[idx]||ICONS[0]}</div>`;
+    const rightSlot=document.createElement("div");rightSlot.className="event-right";
+    if(isFlip)rightSlot.innerHTML=`<div class="event-card">${cardHtml}</div>`;
+    div.appendChild(leftSlot);div.appendChild(nodeSlot);div.appendChild(rightSlot);
+    tl.appendChild(div);
+    // add divider art between events (not after last)
+    if(idx<d.events.length-1){
+      const dvd=document.createElement("div");
+      dvd.className="ev-divider";
+      dvd.innerHTML=DIVIDERS[idx]||DIVIDERS[0];
+      tl.appendChild(dvd);
+    }
   });
-
-  // hero
-  document.getElementById('hero-eyebrow').textContent = d.eyebrow;
-  document.getElementById('hero-title').innerHTML = d.heroTitle;
-  document.getElementById('hero-sub').textContent = d.heroSub;
-
-  // section label
-  document.getElementById('section-tl').textContent = d.sectionTimeline;
-
-  // stat cards
-  const cardEls = document.querySelectorAll('.stat-card');
-  d.cards.forEach((c, i) => {
-    cardEls[i].querySelector('.card-num').textContent = c.num;
-    cardEls[i].querySelector('.card-num').className = 'card-num ' + c.numClass;
-    cardEls[i].querySelector('.card-label').textContent = c.label;
-    const pill = cardEls[i].querySelector('.card-pill');
-    pill.textContent = c.pill;
-    pill.className = 'card-pill ' + c.pillClass;
-  });
-
-  // timeline
-  const tlContainer = document.getElementById('timeline-rows');
-  tlContainer.innerHTML = '';
-  d.timeline.forEach((row, i) => {
-    const div = document.createElement('div');
-    div.className = 'tl-row animate d' + Math.min(i+1, 8);
-    div.innerHTML = `
-      <div class="tl-date">${row.date.replace('\n','<br>')}</div>
-      <div>
-        <div class="tl-title"><span class="tl-dot ${row.dotClass}"></span>${row.title}</div>
-        <div class="tl-desc">${row.desc}</div>
-      </div>`;
-    tlContainer.appendChild(div);
-  });
-
-  // footer
-  document.getElementById('footer-brand').textContent = d.footerBrand;
-  document.getElementById('footer-url').textContent = d.footerUrl;
-  document.getElementById('footer-loc').textContent = d.footerLoc;
+  document.getElementById("fbrand").textContent=d.footer.brand;
+  document.getElementById("furl").textContent=d.footer.url;
+  document.getElementById("floc").textContent=d.footer.loc;
+  observeReveal();
 }
 
-function toggleTheme() {
-  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'dark' : '');
-  document.getElementById('theme-btn').textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+function setTheme(t){
+  theme=t;
+  document.body.setAttribute("data-theme",t);
+  document.getElementById("theme-icon").textContent=t==="dark"?"☀️":"🌙";
+  initCanvas();
+}
+function toggleTheme(){setTheme(theme==="dark"?"light":"dark")}
+
+function observeReveal(){
+  const els=document.querySelectorAll(".reveal:not(.vis)");
+  if(!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("vis"));return}
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("vis");obs.unobserve(e.target)}})},{threshold:.06});
+  els.forEach(e=>obs.observe(e));
+}
+
+/* ── ANIMATED BACKGROUND CANVAS ── */
+function initCanvas(){
+  const cv=document.getElementById("bg-canvas");
+  const ctx=cv.getContext("2d");
+  let W,H,dots=[],raf;
+  function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight}
+  resize();
+  window.addEventListener("resize",resize);
+  const isDark=theme==="dark";
+  const dotColor=isDark?"rgba(232,93,32,":"rgba(24,22,18,";
+  const lineColor=isDark?"rgba(58,143,212,":"rgba(24,22,18,";
+  // create grid dots
+  dots=[];
+  const spacing=42;
+  for(let x=0;x<2000;x+=spacing)for(let y=0;y<2000;y+=spacing)dots.push({x,y,ox:x,oy:y,phase:Math.random()*Math.PI*2,speed:.4+Math.random()*.4});
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    dots.forEach(d=>{
+      const drift=Math.sin(t*.0006+d.phase)*2;
+      d.x=d.ox+drift;d.y=d.oy+drift*.5;
+      const alpha=isDark?(.15+.08*Math.sin(t*.001+d.phase)):(.06+.03*Math.sin(t*.001+d.phase));
+      ctx.beginPath();ctx.arc(d.x,d.y,1,0,Math.PI*2);
+      ctx.fillStyle=dotColor+alpha+")";ctx.fill();
+    });
+    // draw faint grid lines
+    ctx.strokeStyle=lineColor+(isDark?.04:.025)+")";
+    ctx.lineWidth=0.5;
+    for(let x=0;x<2000;x+=spacing){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,2000);ctx.stroke()}
+    for(let y=0;y<2000;y+=spacing){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(2000,y);ctx.stroke()}
+    raf=requestAnimationFrame(draw);
+  }
+  if(raf)cancelAnimationFrame(raf);
+  raf=requestAnimationFrame(draw);
 }
 </script>
 
-<div class="page">
-  <!-- TOPBAR -->
-  <header class="topbar">
-    <div class="brand" id="brand-left">CrisisWatch · Strategic Intelligence</div>
-    <div class="topbar-center">
-      <div class="tag-pill">
-        <span class="dot"></span>
-        <span id="tag-pill-text">US–IRAN CONFLICT · APRIL 2026</span>
-      </div>
-      <div class="controls">
-        <button class="ctrl-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-        <button class="ctrl-btn" id="btn-th" onclick="setLang('th')">ไทย</button>
-        <button class="ctrl-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
-        <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-      </div>
-    </div>
-    <div class="brand" id="brand-right">rubi-ai-deploy.github.io</div>
-  </header>
+<!-- ═══ MARKUP ═══ -->
+<nav>
+  <span class="nav-logo">CrisisWatch</span>
+  <div class="nav-right">
+    <button class="nbtn on" id="lb-en" onclick="render('en')">EN</button>
+    <button class="nbtn" id="lb-th" onclick="render('th')">ไทย</button>
+    <button class="nbtn" id="lb-zh" onclick="render('zh')">中文</button>
+    <span class="tsep"></span>
+    <button class="tbtn" onclick="toggleTheme()"><span id="theme-icon">☀️</span></button>
+  </div>
+</nav>
 
-  <!-- HERO + STAT CARDS -->
-  <section class="hero-grid">
-    <div class="hero-left animate d1">
-      <div class="hero-eyebrow" id="hero-eyebrow">Escalation Dossier · Middle East Flashpoint</div>
-      <h1 class="hero-title" id="hero-title">The <em>Strait</em><br>Ultimatum</h1>
-      <p class="hero-sub" id="hero-sub">How a pilot rescue mission inside enemy territory escalated into a 48-hour deadline threatening to reshape the Middle East's most strategic waterway.</p>
-    </div>
-    <div class="cards-grid animate d2">
-      <div class="stat-card warm">
-        <span class="card-icon">✈️</span>
-        <div class="card-num amber">2</div>
-        <div class="card-label">Pilots Rescued</div>
-        <span class="card-pill pill-green">Both Recovered Safe</span>
-      </div>
-      <div class="stat-card cool">
-        <span class="card-icon">🛢️</span>
-        <div class="card-num blue">48h</div>
-        <div class="card-label">Trump's Ultimatum</div>
-        <span class="card-pill pill-blue">Deadline: Apr 6</span>
-      </div>
-      <div class="stat-card blush">
-        <span class="card-icon">🎯</span>
-        <div class="card-num red">9</div>
-        <div class="card-label">Iranian Casualties</div>
-        <span class="card-pill pill-red">During Rescue Op</span>
-      </div>
-      <div class="stat-card sage">
-        <span class="card-icon">🏛️</span>
-        <div class="card-num green">30+</div>
-        <div class="card-label">Universities Hit</div>
-        <span class="card-pill pill-amber">Iran Claims</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- TIMELINE -->
-  <div class="section-label animate d3" id="section-tl">— Conflict Timeline</div>
-  <div class="tl-wrap animate d4">
-    <div class="timeline">
-      <div id="timeline-rows">
-        <!-- Populated by JS -->
-      </div>
-    </div>
+<!-- HERO -->
+<header class="hero">
+  <!-- animated radar globe -->
+  <div class="hero-art">
+    <svg width="380" height="380" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- static rings -->
+      <circle cx="160" cy="160" r="148" stroke="white" stroke-width=".6" opacity=".4"/>
+      <circle cx="160" cy="160" r="120" stroke="white" stroke-width=".4" opacity=".3"/>
+      <circle cx="160" cy="160" r="90" stroke="white" stroke-width=".4" opacity=".25"/>
+      <circle cx="160" cy="160" r="60" stroke="white" stroke-width=".4" opacity=".2"/>
+      <circle cx="160" cy="160" r="30" stroke="white" stroke-width=".4" opacity=".15"/>
+      <!-- crosshairs -->
+      <line x1="0" y1="160" x2="320" y2="160" stroke="white" stroke-width=".4" opacity=".3"/>
+      <line x1="160" y1="0" x2="160" y2="320" stroke="white" stroke-width=".4" opacity=".3"/>
+      <line x1="20" y1="20" x2="300" y2="300" stroke="white" stroke-width=".25" opacity=".15"/>
+      <line x1="300" y1="20" x2="20" y2="300" stroke="white" stroke-width=".25" opacity=".15"/>
+      <!-- spinning dashed ring -->
+      <g class="radar-ring1">
+        <circle cx="160" cy="160" r="108" stroke="white" stroke-width=".8" stroke-dasharray="6 8" opacity=".35"/>
+      </g>
+      <!-- counter-spinning ring -->
+      <g class="radar-ring2">
+        <circle cx="160" cy="160" r="76" stroke="white" stroke-width=".8" stroke-dasharray="3 12" opacity=".25"/>
+      </g>
+      <!-- radar sweep -->
+      <g class="radar-sweep-line" opacity=".15">
+        <path d="M160 160 L300 130" stroke="white" stroke-width="1.5"/>
+        <path d="M160 160 L295 145 L300 130" fill="white" opacity=".08"/>
+      </g>
+      <!-- Iran silhouette -->
+      <path d="M144 95 L185 90 L215 112 L225 145 L205 172 L185 182 L162 178 L144 194 L122 183 L110 157 L118 132 Z" stroke="white" stroke-width="1.4" fill="white" opacity=".06"/>
+      <!-- Strait of Hormuz dashed -->
+      <path d="M152 218 Q163 230 178 224 Q190 218 196 206" stroke="white" stroke-width="2" stroke-dasharray="4 3" opacity=".6"/>
+      <circle cx="152" cy="218" r="3" fill="white" opacity=".5"/>
+      <text x="160" y="244" font-size="7" fill="white" opacity=".45" font-family="monospace" letter-spacing="2" text-anchor="middle">HORMUZ</text>
+      <!-- target pings -->
+      <circle cx="170" cy="140" r="5" stroke="white" stroke-width="1" opacity=".5"/>
+      <circle cx="170" cy="140" r="9" stroke="white" stroke-width=".5" opacity=".25"/>
+      <circle cx="185" cy="155" r="3.5" stroke="white" stroke-width="1" opacity=".4"/>
+    </svg>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer animate d5">
-    <div class="footer-brand" id="footer-brand">CrisisWatch · OilDomino</div>
-    <div class="footer-url" id="footer-url">rubi-ai-deploy.github.io/oil-domino-effect</div>
-    <div class="footer-loc" id="footer-loc">Middle East · April 2026</div>
-  </footer>
+  <div class="hero-eyebrow" id="eyebrow"></div>
+  <h1 class="hero-hed" id="hero-hed"></h1>
+  <p class="hero-sub" id="hero-sub"></p>
+</header>
+
+<!-- SCENE BANNER -->
+<div class="scene-banner">
+  <svg viewBox="0 0 860 90" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <!-- horizon line -->
+    <line x1="0" y1="60" x2="860" y2="60" stroke="var(--rule2)" stroke-width="1"/>
+    <!-- mountains silhouette (desert) -->
+    <path d="M0 60 L60 30 L120 55 L200 20 L280 50 L340 35 L400 55 L460 25 L530 50 L600 38 L660 55 L720 28 L780 52 L860 40 L860 60 Z" fill="var(--surface)" opacity=".5"/>
+    <!-- F-15 silhouette flying left to right -->
+    <g transform="translate(100,28)" opacity=".7">
+      <path d="M0 0 L-28 8 L-18 0 L-28 -8 Z" fill="var(--ink3)"/><!-- body -->
+      <path d="M-8 0 L-22 -14 L-18 0 L-22 14 Z" fill="var(--ink3)"/><!-- wings -->
+      <path d="M-20 0 L-28 -5 L-26 0 L-28 5 Z" fill="var(--ink3)"/><!-- tail -->
+      <path d="M0 0 L16 0" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 3" opacity=".6"/><!-- exhaust -->
+    </g>
+    <!-- missile trail arc -->
+    <path d="M140 50 Q300 10 500 42" stroke="var(--accent)" stroke-width="1" stroke-dasharray="5 4" opacity=".3"/>
+    <circle cx="500" cy="42" r="3" fill="var(--accent)" opacity=".4"/>
+    <!-- explosion burst at impact -->
+    <g transform="translate(500,42)" opacity=".35">
+      <line x1="0" y1="0" x2="8" y2="-8" stroke="var(--accent2)" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="10" y2="0" stroke="var(--accent2)" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="6" y2="8" stroke="var(--accent2)" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="-8" y2="-6" stroke="var(--accent2)" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="-9" y2="4" stroke="var(--accent2)" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <!-- parachute far right -->
+    <g transform="translate(720,18)" opacity=".55">
+      <path d="M0 0 C-12 -18 12 -18 0 0" stroke="var(--green)" stroke-width="1.5" fill="none"/>
+      <path d="M-8 0 L0 14 L8 0" stroke="var(--green)" stroke-width="1.2" stroke-linejoin="round"/>
+      <circle cx="0" cy="15" r="2" fill="var(--green)" opacity=".8"/>
+    </g>
+    <!-- oil barrel icons -->
+    <g transform="translate(660,46)" opacity=".4">
+      <rect x="0" y="0" width="10" height="14" rx="2" stroke="var(--accent2)" stroke-width="1.2" fill="none"/>
+      <line x1="0" y1="5" x2="10" y2="5" stroke="var(--accent2)" stroke-width=".8"/>
+      <line x1="0" y1="9" x2="10" y2="9" stroke="var(--accent2)" stroke-width=".8"/>
+    </g>
+    <g transform="translate(675,48)" opacity=".3">
+      <rect x="0" y="0" width="10" height="14" rx="2" stroke="var(--accent2)" stroke-width="1.2" fill="none"/>
+      <line x1="0" y1="5" x2="10" y2="5" stroke="var(--accent2)" stroke-width=".8"/>
+    </g>
+    <!-- HORMUZ label with arrow -->
+    <line x1="760" y1="55" x2="800" y2="55" stroke="var(--blue)" stroke-width="1" stroke-dasharray="3 2" opacity=".4"/>
+    <text x="768" y="52" font-size="7" fill="var(--blue)" font-family="monospace" letter-spacing="1.5" opacity=".5">HORMUZ</text>
+    <!-- dots for key cities -->
+    <circle cx="300" cy="56" r="2" fill="var(--accent)" opacity=".5"/>
+    <text x="294" y="50" font-size="6" fill="var(--ink3)" font-family="monospace" opacity=".5">DEDAJ</text>
+    <circle cx="430" cy="56" r="2" fill="var(--ink3)" opacity=".4"/>
+    <text x="424" y="50" font-size="6" fill="var(--ink3)" font-family="monospace" opacity=".4">IRAN</text>
+  </svg>
 </div>
 
+<!-- STAT BAR -->
+<div class="statbar reveal">
+  <div class="sitem"><div class="snum a"></div><div class="slbl"></div></div>
+  <div class="sitem"><div class="snum b"></div><div class="slbl"></div></div>
+  <div class="sitem"><div class="snum r"></div><div class="slbl"></div></div>
+  <div class="sitem"><div class="snum g"></div><div class="slbl"></div></div>
+</div>
+
+<!-- TIMELINE LABEL -->
+<div class="tl-label">
+  <span class="tl-label-text">CRISIS TIMELINE</span>
+  <span class="tl-label-line"></span>
+</div>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div id="tl-events"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="ftext" id="fbrand"></span>
+  <span class="ftext" id="furl" style="font-weight:400;opacity:.6"></span>
+  <span class="ftext" id="floc"></span>
+</footer>
+
+</div><!-- /page-wrap -->
+
 <script>
-  // init
-  setLang('en');
-  // respect OS preference
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    toggleTheme();
-  }
+const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;
+setTheme(prefersDark?"dark":"light");
+render("en");
+initCanvas();
 </script>
 </body>
 </html>

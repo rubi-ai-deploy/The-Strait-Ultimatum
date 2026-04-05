@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Strait Ultimatum — US–Iran Crisis 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,700&family=Barlow+Condensed:wght@300;400;600&family=Barlow:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ─── TOKENS ─── */
+:root {
+  --bg-grad: linear-gradient(135deg,#fce4ec 0%,#f8bbd9 10%,#e1bee7 25%,#bbdefb 45%,#b3e5fc 60%,#c8e6c9 75%,#fff9c4 88%,#ffe0b2 100%);
+  --bg-overlay1: radial-gradient(ellipse 80% 60% at 30% 20%, rgba(255,200,200,.35) 0%, transparent 60%);
+  --bg-overlay2: radial-gradient(ellipse 70% 70% at 70% 80%, rgba(180,220,255,.3) 0%, transparent 60%);
+  --bg-overlay3: radial-gradient(ellipse 60% 50% at 80% 30%, rgba(200,200,255,.25) 0%, transparent 60%);
+  --card-bg: rgba(255,255,255,.68);
+  --card-warm: rgba(255,240,225,.82);
+  --card-cool: rgba(225,238,255,.82);
+  --card-blush: rgba(255,228,228,.82);
+  --card-sage: rgba(225,245,225,.80);
+  --card-tl: rgba(255,255,255,.68);
+  --card-border: rgba(255,255,255,.92);
+  --text-primary: rgba(0,0,0,.88);
+  --text-secondary: rgba(0,0,0,.50);
+  --text-muted: rgba(0,0,0,.38);
+  --text-label: rgba(0,0,0,.42);
+  --divider: rgba(0,0,0,.08);
+  --divider-row: rgba(0,0,0,.07);
+  --topbar-bg: rgba(255,255,255,.30);
+  --pill-bg: rgba(255,255,255,.72);
+  --pill-border: rgba(0,0,0,.15);
+  --num-amber: #b34700;
+  --num-blue: #1a5fa8;
+  --num-red: #b32020;
+  --num-green: #2a7a3a;
+  --pill-amber-bg: rgba(180,100,0,.12); --pill-amber-txt: #7a4200;
+  --pill-blue-bg: rgba(20,80,180,.10);  --pill-blue-txt: #0a3a8a;
+  --pill-red-bg: rgba(180,20,20,.10);   --pill-red-txt: #8a0a0a;
+  --pill-green-bg: rgba(30,120,50,.10); --pill-green-txt: #0a5a1a;
+  --dot-red: #c0392b; --dot-amber: #e67e22; --dot-blue: #2980b9; --dot-green: #27ae60;
+}
+
+[data-theme="dark"] {
+  --bg-grad: linear-gradient(135deg,#1a0a10 0%,#1f0d1f 18%,#0d1528 40%,#071520 60%,#0a160d 78%,#1a1800 92%,#1a0f00 100%);
+  --bg-overlay1: radial-gradient(ellipse 80% 60% at 30% 20%, rgba(120,30,50,.3) 0%, transparent 60%);
+  --bg-overlay2: radial-gradient(ellipse 70% 70% at 70% 80%, rgba(20,60,130,.3) 0%, transparent 60%);
+  --bg-overlay3: radial-gradient(ellipse 60% 50% at 80% 30%, rgba(60,30,130,.2) 0%, transparent 60%);
+  --card-bg: rgba(255,255,255,.06);
+  --card-warm: rgba(120,60,10,.25);
+  --card-cool: rgba(10,50,120,.22);
+  --card-blush: rgba(120,20,20,.22);
+  --card-sage: rgba(10,80,30,.20);
+  --card-tl: rgba(255,255,255,.055);
+  --card-border: rgba(255,255,255,.10);
+  --text-primary: rgba(255,255,255,.92);
+  --text-secondary: rgba(255,255,255,.52);
+  --text-muted: rgba(255,255,255,.32);
+  --text-label: rgba(255,255,255,.38);
+  --divider: rgba(255,255,255,.08);
+  --divider-row: rgba(255,255,255,.07);
+  --topbar-bg: rgba(0,0,0,.30);
+  --pill-bg: rgba(255,255,255,.10);
+  --pill-border: rgba(255,255,255,.18);
+  --num-amber: #f0a050;
+  --num-blue: #6aabf0;
+  --num-red: #f07070;
+  --num-green: #70d090;
+  --pill-amber-bg: rgba(240,160,80,.15); --pill-amber-txt: #f0c080;
+  --pill-blue-bg: rgba(100,180,240,.12); --pill-blue-txt: #90ccf8;
+  --pill-red-bg: rgba(240,100,100,.12);  --pill-red-txt: #f8a0a0;
+  --pill-green-bg: rgba(100,210,140,.12);--pill-green-txt: #90e8b0;
+  --dot-red: #e05050; --dot-amber: #f0a040; --dot-blue: #60a8e0; --dot-green: #50c878;
+}
+
+/* ─── BASE ─── */
+body {
+  font-family: 'Barlow', 'Noto Sans Thai', 'Noto Sans SC', sans-serif;
+  background: var(--bg-grad);
+  min-height: 100vh;
+  position: relative;
+  color: var(--text-primary);
+  transition: background .4s, color .3s;
+}
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background: var(--bg-overlay1), var(--bg-overlay2), var(--bg-overlay3);
+  transition: background .4s;
+}
+
+/* ─── FONT CLASSES ─── */
+.lang-th body, body.lang-th { font-family: 'Noto Sans Thai', 'Barlow', sans-serif; }
+.lang-zh body, body.lang-zh { font-family: 'Noto Sans SC', 'Barlow', sans-serif; }
+
+/* ─── PAGE WRAPPER ─── */
+.page { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 0 60px; }
+
+/* ─── TOPBAR ─── */
+.topbar {
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  padding:16px 40px;
+  background: var(--topbar-bg);
+  border-bottom: 0.5px solid var(--divider);
+  backdrop-filter: blur(8px);
+  position:sticky; top:0; z-index:100;
+}
+.brand {
+  font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600;
+  letter-spacing:.06em; color:var(--text-muted);
+}
+.topbar-center { display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center; }
+.tag-pill {
+  background:var(--pill-bg); border:0.5px solid var(--pill-border);
+  border-radius:999px; padding:4px 14px;
+  font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:.1em; color:var(--text-secondary);
+  display:flex; align-items:center; gap:6px;
+}
+.tag-pill .dot { width:6px; height:6px; border-radius:50%; background:var(--dot-red); display:inline-block; }
+
+/* controls row */
+.controls { display:flex; align-items:center; gap:6px; }
+.ctrl-btn {
+  background:var(--pill-bg); border:0.5px solid var(--pill-border);
+  border-radius:999px; padding:4px 12px; cursor:pointer;
+  font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:.08em; color:var(--text-secondary);
+  transition: background .2s, color .2s, transform .1s;
+  white-space:nowrap;
+}
+.ctrl-btn:hover { background:rgba(128,128,128,.15); }
+.ctrl-btn:active { transform:scale(.96); }
+.ctrl-btn.active {
+  background:var(--text-primary); color:var(--bg-grad);
+  border-color:transparent;
+}
+[data-theme="dark"] .ctrl-btn.active { background:rgba(255,255,255,.88); color:#111; }
+
+.theme-btn {
+  background:var(--pill-bg); border:0.5px solid var(--pill-border);
+  border-radius:50%; width:30px; height:30px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px; transition: transform .3s, background .2s;
+}
+.theme-btn:hover { transform:rotate(20deg) scale(1.1); }
+
+/* ─── HERO GRID ─── */
+.hero-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  padding:48px 40px 32px; align-items:end;
+}
+.hero-eyebrow {
+  font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:400;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px;
+}
+.hero-title {
+  font-family:'Playfair Display',serif; font-weight:900;
+  font-size:clamp(44px,6vw,84px); line-height:1.0;
+  color:var(--text-primary); margin-bottom:16px;
+}
+.hero-title em { font-style:italic; font-weight:700; color:var(--num-amber); }
+.hero-sub { font-size:14px; color:var(--text-secondary); font-weight:300; line-height:1.65; max-width:340px; }
+
+/* lang tweaks */
+body.lang-th .hero-title { font-family:'Noto Sans Thai',serif; font-size:clamp(32px,5vw,64px); }
+body.lang-zh .hero-title { font-family:'Noto Sans SC',serif; font-size:clamp(32px,5vw,68px); }
+body.lang-th .hero-sub, body.lang-zh .hero-sub { font-size:13px; line-height:1.7; }
+
+/* ─── STAT CARDS ─── */
+.cards-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.stat-card {
+  border:0.5px solid var(--card-border); border-radius:20px;
+  padding:24px 22px 20px; backdrop-filter:blur(12px);
+  transition: transform .2s, box-shadow .2s;
+}
+.stat-card:hover { transform:translateY(-2px); }
+.stat-card.warm  { background:var(--card-warm); }
+.stat-card.cool  { background:var(--card-cool); }
+.stat-card.blush { background:var(--card-blush); }
+.stat-card.sage  { background:var(--card-sage); }
+.card-icon { font-size:22px; margin-bottom:16px; display:block; }
+.card-num {
+  font-family:'Playfair Display',serif; font-weight:900;
+  font-size:46px; line-height:1; margin-bottom:5px;
+}
+body.lang-th .card-num, body.lang-zh .card-num { font-size:40px; }
+.card-num.amber { color:var(--num-amber); }
+.card-num.blue  { color:var(--num-blue); }
+.card-num.red   { color:var(--num-red); }
+.card-num.green { color:var(--num-green); }
+.card-label {
+  font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--text-label); margin-bottom:12px;
+}
+body.lang-th .card-label, body.lang-zh .card-label {
+  font-family:'Noto Sans Thai','Noto Sans SC',sans-serif;
+  font-size:10px; letter-spacing:.04em; text-transform:none;
+}
+.card-pill {
+  display:inline-flex; align-items:center; border-radius:999px;
+  padding:3px 10px; font-size:10px; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase; line-height:1.4;
+}
+body.lang-th .card-pill, body.lang-zh .card-pill {
+  font-family:'Noto Sans Thai','Noto Sans SC',sans-serif;
+  font-size:10px; letter-spacing:.01em; text-transform:none;
+}
+.pill-amber { background:var(--pill-amber-bg); color:var(--pill-amber-txt); }
+.pill-blue  { background:var(--pill-blue-bg);  color:var(--pill-blue-txt); }
+.pill-red   { background:var(--pill-red-bg);   color:var(--pill-red-txt); }
+.pill-green { background:var(--pill-green-bg); color:var(--pill-green-txt); }
+
+/* ─── SECTION LABEL ─── */
+.section-label {
+  font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted);
+  padding:32px 40px 14px;
+}
+
+/* ─── TIMELINE ─── */
+.tl-wrap { padding:0 40px; }
+.timeline {
+  background:var(--card-tl); border:0.5px solid var(--card-border);
+  border-radius:20px; padding:10px 28px 10px; backdrop-filter:blur(10px);
+}
+.tl-row {
+  display:grid; grid-template-columns:88px 1fr; gap:20px;
+  padding:16px 0; border-bottom:0.5px solid var(--divider-row); align-items:start;
+}
+.tl-row:last-child { border-bottom:none; }
+.tl-date {
+  font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:600;
+  letter-spacing:.06em; color:var(--text-muted); line-height:1.5; padding-top:2px;
+}
+body.lang-th .tl-date, body.lang-zh .tl-date {
+  font-family:'Noto Sans Thai','Noto Sans SC',sans-serif; font-size:11px; letter-spacing:0;
+}
+.tl-title { font-size:13px; font-weight:500; color:var(--text-primary); margin-bottom:5px; }
+.tl-desc  { font-size:12px; font-weight:300; color:var(--text-secondary); line-height:1.6; }
+body.lang-th .tl-title, body.lang-th .tl-desc,
+body.lang-zh .tl-title, body.lang-zh .tl-desc { font-size:12.5px; line-height:1.7; }
+.tl-dot {
+  display:inline-block; width:7px; height:7px; border-radius:50%;
+  margin-right:7px; vertical-align:middle; margin-top:-2px; flex-shrink:0;
+}
+.dr { background:var(--dot-red); }
+.da { background:var(--dot-amber); }
+.db { background:var(--dot-blue); }
+.dg { background:var(--dot-green); }
+
+/* ─── FOOTER ─── */
+.footer {
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  padding:24px 40px 0; border-top:0.5px solid var(--divider); margin-top:40px;
+}
+.footer-brand { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; letter-spacing:.06em; color:var(--text-muted); }
+.footer-url   { font-size:11px; color:var(--text-muted); opacity:.7; }
+.footer-loc   { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--text-muted); text-transform:uppercase; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.animate { animation: fadeUp .55s ease both; }
+.d1 { animation-delay:.05s; } .d2 { animation-delay:.12s; }
+.d3 { animation-delay:.19s; } .d4 { animation-delay:.26s; }
+.d5 { animation-delay:.33s; } .d6 { animation-delay:.40s; }
+.d7 { animation-delay:.47s; } .d8 { animation-delay:.54s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .topbar { padding:14px 20px; }
+  .brand { display:none; }
+  .hero-grid { grid-template-columns:1fr; padding:32px 20px 24px; gap:28px; }
+  .hero-sub { max-width:100%; }
+  .cards-grid { grid-template-columns:1fr 1fr; }
+  .section-label { padding:24px 20px 12px; }
+  .tl-wrap { padding:0 20px; }
+  .timeline { padding:8px 18px 8px; }
+  .footer { padding:20px 20px 0; }
+}
+@media (max-width: 560px) {
+  .topbar { gap:8px; flex-direction:column; align-items:flex-start; }
+  .topbar-center { width:100%; }
+  .controls { width:100%; justify-content:flex-start; }
+  .hero-title { font-size:clamp(36px,10vw,56px); }
+  .cards-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .stat-card { padding:18px 14px 16px; }
+  .card-num { font-size:36px; }
+  .tl-row { grid-template-columns:72px 1fr; gap:12px; }
+  .tl-date { font-size:11px; }
+  .footer { flex-direction:column; align-items:flex-start; gap:4px; }
+  .footer-url { display:none; }
+}
+@media (max-width: 380px) {
+  .cards-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ CONTENT DATA ════════════════ -->
+<script>
+const CONTENT = {
+  en: {
+    pageTitle: "The Strait Ultimatum — US–Iran Crisis 2026",
+    eyebrow: "Escalation Dossier · Middle East Flashpoint",
+    heroTitle: "The <em>Strait</em><br>Ultimatum",
+    heroSub: "How a pilot rescue mission inside enemy territory escalated into a 48-hour deadline threatening to reshape the Middle East's most strategic waterway.",
+    tagPill: "US–IRAN CONFLICT · APRIL 2026",
+    brandLeft: "CrisisWatch · Strategic Intelligence",
+    brandRight: "rubi-ai-deploy.github.io",
+    sectionTimeline: "— Conflict Timeline",
+    footerBrand: "CrisisWatch · OilDomino",
+    footerUrl: "rubi-ai-deploy.github.io/oil-domino-effect",
+    footerLoc: "Middle East · April 2026",
+    cards: [
+      { icon:"✈️", num:"2", numClass:"amber", label:"Pilots Rescued", pill:"Both Recovered Safe", pillClass:"pill-green" },
+      { icon:"🛢️", num:"48h", numClass:"blue", label:"Trump's Ultimatum", pill:"Deadline: Apr 6", pillClass:"pill-blue" },
+      { icon:"🎯", num:"9", numClass:"red", label:"Iranian Casualties", pill:"During Rescue Op", pillClass:"pill-red" },
+      { icon:"🏛️", num:"30+", numClass:"green", label:"Universities Hit", pill:"Iran Claims", pillClass:"pill-amber" },
+    ],
+    timeline: [
+      { date:"Feb 28\n2026", dotClass:"dr", title:"Conflict Begins", desc:"Latest round of hostilities starts. Iran accuses US and Israel of targeting over 30 universities across Iranian territory, condemning strikes as attacks on civilian infrastructure." },
+      { date:"Apr 3\nFriday", dotClass:"dr", title:"F-15 Shot Down Over Iran", desc:"A US F-15 fighter jet is downed over Iranian territory. The pilot goes missing, triggering 24-hour surveillance protocols and an emergency rescue operation." },
+      { date:"Apr 3–5\n72 hrs", dotClass:"da", title:"Multi-Day Rescue Near Dedaj", desc:"US Special Operations Forces deploy near Dedaj. Dozens of advanced aircraft committed. Warning shots deter Iranian ground forces. Airstrikes hit Iranian convoys. A second US aircraft immobilized in sand is intentionally destroyed to deny technology capture." },
+      { date:"Apr 5\nMorning", dotClass:"dg", title:"First Pilot Recovered", desc:"Trump confirms the safe extraction of the first downed pilot — injured but alive. Described as a historic rescue inside active enemy territory." },
+      { date:"Apr 5\nLater", dotClass:"dg", title:"Second Pilot Recovered — Dual Historic Rescue", desc:"Trump announces recovery of the second pilot. First time in US military history that two pilots have been separately extracted from enemy territory during the same operation." },
+      { date:"Apr 5\nEvening", dotClass:"db", title:"Trump Issues 48-Hour Ultimatum", desc:"Trump demands Iran open the Strait of Hormuz and begin peace negotiations within 48 hours — or face severe military action by April 6, 2026." },
+      { date:"Ongoing", dotClass:"da", title:"IRGC Counter-Claims & Disputed Losses", desc:"Iran's IRGC claims to have downed a C-130, two Black Hawks, and an MQ Reaper drone. US contests the account — confirming only the intentional self-destruction of one aircraft." },
+    ]
+  },
+  th: {
+    pageTitle: "คำขาดช่องแคบฮอร์มุซ — วิกฤตอิหร่าน 2026",
+    eyebrow: "รายงานการเพิ่มความตึงเครียด · จุดอันตรายตะวันออกกลาง",
+    heroTitle: "คำขาด<em>ช่องแคบ</em><br>ฮอร์มุซ",
+    heroSub: "ภารกิจกู้นักบินในดินแดนศัตรูลุกลามกลายเป็นคำขาด 48 ชั่วโมง ที่คุกคามจะเปลี่ยนโฉมเส้นทางน้ำมันที่สำคัญที่สุดของตะวันออกกลาง",
+    tagPill: "ความขัดแย้งสหรัฐฯ–อิหร่าน · เมษายน 2026",
+    brandLeft: "CrisisWatch · ข่าวกรองยุทธศาสตร์",
+    brandRight: "rubi-ai-deploy.github.io",
+    sectionTimeline: "— ลำดับเหตุการณ์ความขัดแย้ง",
+    footerBrand: "CrisisWatch · OilDomino",
+    footerUrl: "rubi-ai-deploy.github.io/oil-domino-effect",
+    footerLoc: "ตะวันออกกลาง · เมษายน 2026",
+    cards: [
+      { icon:"✈️", num:"2", numClass:"amber", label:"นักบินที่ได้รับการช่วยเหลือ", pill:"ทั้งคู่ปลอดภัย", pillClass:"pill-green" },
+      { icon:"🛢️", num:"48ชม.", numClass:"blue", label:"คำขาดของทรัมป์", pill:"กำหนด: 6 เม.ย.", pillClass:"pill-blue" },
+      { icon:"🎯", num:"9", numClass:"red", label:"ผู้เสียชีวิตฝ่ายอิหร่าน", pill:"ระหว่างปฏิบัติการกู้ภัย", pillClass:"pill-red" },
+      { icon:"🏛️", num:"30+", numClass:"green", label:"มหาวิทยาลัยที่ถูกโจมตี", pill:"ข้อกล่าวหาของอิหร่าน", pillClass:"pill-amber" },
+    ],
+    timeline: [
+      { date:"28 ก.พ.\n2026", dotClass:"dr", title:"ความขัดแย้งเริ่มต้น", desc:"ความรุนแรงรอบล่าสุดปะทุขึ้น อิหร่านกล่าวหาสหรัฐฯ และอิสราเอลว่าโจมตีมหาวิทยาลัยกว่า 30 แห่ง ประณามว่าเป็นการโจมตีโครงสร้างพลเรือน" },
+      { date:"3 เม.ย.\nวันศุกร์", dotClass:"dr", title:"เครื่องบิน F-15 ถูกยิงตกเหนือดินแดนอิหร่าน", desc:"เครื่องบินรบ F-15 ของสหรัฐฯ ถูกยิงตกในดินแดนอิหร่าน นักบินสูญหาย กระตุ้นให้เริ่มปฏิบัติการเฝ้าระวัง 24 ชั่วโมงและภารกิจกู้ภัยฉุกเฉิน" },
+      { date:"3–5 เม.ย.\n72 ชม.", dotClass:"da", title:"ปฏิบัติการกู้ภัยหลายวันใกล้เดดัจ", desc:"กองกำลังปฏิบัติการพิเศษสหรัฐฯ ส่งกำลังใกล้เมืองเดดัจ ระดมเครื่องบินชั้นสูงหลายสิบลำ ยิงเตือนสกัดกองกำลังภาคพื้นอิหร่าน โจมตีทางอากาศขบวนรถทหารอิหร่าน และทำลายเครื่องบินที่ติดหล่มทรายเพื่อป้องกันการสูญเสียเทคโนโลยี" },
+      { date:"5 เม.ย.\nเช้า", dotClass:"dg", title:"กู้นักบินคนแรกสำเร็จ", desc:"ทรัมป์ยืนยันการนำนักบินคนแรกออกมาได้อย่างปลอดภัย บาดเจ็บแต่รอดชีวิต ถูกบรรยายว่าเป็นการช่วยเหลือประวัติศาสตร์ในดินแดนศัตรู" },
+      { date:"5 เม.ย.\nบ่าย", dotClass:"dg", title:"กู้นักบินคนที่สอง — ภารกิจคู่ประวัติศาสตร์", desc:"ทรัมป์ประกาศกู้นักบินคนที่สองสำเร็จ เป็นครั้งแรกในประวัติศาสตร์ทหารสหรัฐฯ ที่สามารถช่วยนักบิน 2 คน แยกกันออกมาจากดินแดนศัตรูในปฏิบัติการเดียวกัน" },
+      { date:"5 เม.ย.\nค่ำ", dotClass:"db", title:"ทรัมป์ออกคำขาด 48 ชั่วโมง", desc:"ทรัมป์เรียกร้องให้อิหร่านเปิดช่องแคบฮอร์มุซและเริ่มการเจรจาสันติภาพภายใน 48 ชั่วโมง มิฉะนั้นจะเผชิญมาตรการทางทหารที่รุนแรงภายในวันที่ 6 เมษายน 2026" },
+      { date:"ต่อเนื่อง", dotClass:"da", title:"ข้อกล่าวอ้างต่อต้านของ IRGC และความเสียหายที่โต้แย้ง", desc:"กองกำลัง IRGC ของอิหร่านอ้างว่ายิงตก C-130 เฮลิคอปเตอร์แบล็คฮอว์ก 2 ลำ และโดรน MQ Reaper สหรัฐฯ โต้แย้งบัญชีนี้ ยืนยันเพียงการทำลายเครื่องบินหนึ่งลำโดยเจตนา" },
+    ]
+  },
+  zh: {
+    pageTitle: "霍尔木兹海峡最后通牒 — 美伊危机2026",
+    eyebrow: "升级档案 · 中东危机引爆点",
+    heroTitle: "<em>海峡</em><br>最后通牒",
+    heroSub: "一场在敌方领土内的飞行员救援任务，如何演变为48小时最后通牒，威胁重塑中东最具战略意义的水道。",
+    tagPill: "美伊冲突 · 2026年4月",
+    brandLeft: "CrisisWatch · 战略情报",
+    brandRight: "rubi-ai-deploy.github.io",
+    sectionTimeline: "— 冲突时间线",
+    footerBrand: "CrisisWatch · OilDomino",
+    footerUrl: "rubi-ai-deploy.github.io/oil-domino-effect",
+    footerLoc: "中东地区 · 2026年4月",
+    cards: [
+      { icon:"✈️", num:"2", numClass:"amber", label:"获救飞行员", pill:"两人均安全返回", pillClass:"pill-green" },
+      { icon:"🛢️", num:"48小时", numClass:"blue", label:"特朗普最后通牒", pill:"截止日：4月6日", pillClass:"pill-blue" },
+      { icon:"🎯", num:"9", numClass:"red", label:"伊朗方面伤亡", pill:"救援行动期间", pillClass:"pill-red" },
+      { icon:"🏛️", num:"30+", numClass:"green", label:"被袭高校数量", pill:"伊朗声称", pillClass:"pill-amber" },
+    ],
+    timeline: [
+      { date:"2026年\n2月28日", dotClass:"dr", title:"冲突开始", desc:"最新一轮敌对行动爆发。伊朗指责美国和以色列袭击伊朗境内30余所大学，谴责此举是对平民基础设施的攻击。" },
+      { date:"4月3日\n周五", dotClass:"dr", title:"F-15战机在伊朗上空被击落", desc:"一架美国F-15战斗机在伊朗领土上空被击落，飞行员失联，随即触发24小时监视协议和紧急救援行动。" },
+      { date:"4月3–5日\n72小时", dotClass:"da", title:"在代达杰附近的多日救援行动", desc:"美国特种作战部队在代达杰附近部署。数十架先进飞机投入行动，警告射击阻止伊朗地面部队，对逼近的伊朗车队实施空袭。一架陷入沙地的美军飞机被主动摧毁以防止技术泄露。" },
+      { date:"4月5日\n上午", dotClass:"dg", title:"第一名飞行员获救", desc:"特朗普证实第一名被击落飞行员安全撤出——受伤但生还。被称为在活跃敌方领土内的历史性救援行动。" },
+      { date:"4月5日\n稍后", dotClass:"dg", title:"第二名飞行员获救——双重历史性救援", desc:"特朗普宣布第二名飞行员成功获救，为美国军事史上首次在同一行动中分别从敌方领土救出两名飞行员。" },
+      { date:"4月5日\n傍晚", dotClass:"db", title:"特朗普发出48小时最后通牒", desc:"特朗普要求伊朗在48小时内开放霍尔木兹海峡并开始和平谈判，否则将于2026年4月6日前遭到严厉军事打击。" },
+      { date:"持续中", dotClass:"da", title:"伊朗革命卫队反击声明及争议损失", desc:"伊朗革命卫队声称击落一架C-130运输机、两架黑鹰直升机及一架MQ死神无人机。美方对此提出异议，仅承认主动销毁了一架本国飞机。" },
+    ]
+  }
+};
+
+let currentLang = 'en';
+let currentTheme = 'light';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.body.className = 'lang-' + lang;
+  const d = CONTENT[lang];
+  document.title = d.pageTitle;
+
+  // topbar
+  document.getElementById('brand-left').textContent = d.brandLeft;
+  document.getElementById('brand-right').textContent = d.brandRight;
+  document.getElementById('tag-pill-text').textContent = d.tagPill;
+
+  // lang buttons
+  ['en','th','zh'].forEach(l => {
+    document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+  });
+
+  // hero
+  document.getElementById('hero-eyebrow').textContent = d.eyebrow;
+  document.getElementById('hero-title').innerHTML = d.heroTitle;
+  document.getElementById('hero-sub').textContent = d.heroSub;
+
+  // section label
+  document.getElementById('section-tl').textContent = d.sectionTimeline;
+
+  // stat cards
+  const cardEls = document.querySelectorAll('.stat-card');
+  d.cards.forEach((c, i) => {
+    cardEls[i].querySelector('.card-num').textContent = c.num;
+    cardEls[i].querySelector('.card-num').className = 'card-num ' + c.numClass;
+    cardEls[i].querySelector('.card-label').textContent = c.label;
+    const pill = cardEls[i].querySelector('.card-pill');
+    pill.textContent = c.pill;
+    pill.className = 'card-pill ' + c.pillClass;
+  });
+
+  // timeline
+  const tlContainer = document.getElementById('timeline-rows');
+  tlContainer.innerHTML = '';
+  d.timeline.forEach((row, i) => {
+    const div = document.createElement('div');
+    div.className = 'tl-row animate d' + Math.min(i+1, 8);
+    div.innerHTML = `
+      <div class="tl-date">${row.date.replace('\n','<br>')}</div>
+      <div>
+        <div class="tl-title"><span class="tl-dot ${row.dotClass}"></span>${row.title}</div>
+        <div class="tl-desc">${row.desc}</div>
+      </div>`;
+    tlContainer.appendChild(div);
+  });
+
+  // footer
+  document.getElementById('footer-brand').textContent = d.footerBrand;
+  document.getElementById('footer-url').textContent = d.footerUrl;
+  document.getElementById('footer-loc').textContent = d.footerLoc;
+}
+
+function toggleTheme() {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'dark' : '');
+  document.getElementById('theme-btn').textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+}
+</script>
+
+<div class="page">
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="brand" id="brand-left">CrisisWatch · Strategic Intelligence</div>
+    <div class="topbar-center">
+      <div class="tag-pill">
+        <span class="dot"></span>
+        <span id="tag-pill-text">US–IRAN CONFLICT · APRIL 2026</span>
+      </div>
+      <div class="controls">
+        <button class="ctrl-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="ctrl-btn" id="btn-th" onclick="setLang('th')">ไทย</button>
+        <button class="ctrl-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+        <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+    <div class="brand" id="brand-right">rubi-ai-deploy.github.io</div>
+  </header>
+
+  <!-- HERO + STAT CARDS -->
+  <section class="hero-grid">
+    <div class="hero-left animate d1">
+      <div class="hero-eyebrow" id="hero-eyebrow">Escalation Dossier · Middle East Flashpoint</div>
+      <h1 class="hero-title" id="hero-title">The <em>Strait</em><br>Ultimatum</h1>
+      <p class="hero-sub" id="hero-sub">How a pilot rescue mission inside enemy territory escalated into a 48-hour deadline threatening to reshape the Middle East's most strategic waterway.</p>
+    </div>
+    <div class="cards-grid animate d2">
+      <div class="stat-card warm">
+        <span class="card-icon">✈️</span>
+        <div class="card-num amber">2</div>
+        <div class="card-label">Pilots Rescued</div>
+        <span class="card-pill pill-green">Both Recovered Safe</span>
+      </div>
+      <div class="stat-card cool">
+        <span class="card-icon">🛢️</span>
+        <div class="card-num blue">48h</div>
+        <div class="card-label">Trump's Ultimatum</div>
+        <span class="card-pill pill-blue">Deadline: Apr 6</span>
+      </div>
+      <div class="stat-card blush">
+        <span class="card-icon">🎯</span>
+        <div class="card-num red">9</div>
+        <div class="card-label">Iranian Casualties</div>
+        <span class="card-pill pill-red">During Rescue Op</span>
+      </div>
+      <div class="stat-card sage">
+        <span class="card-icon">🏛️</span>
+        <div class="card-num green">30+</div>
+        <div class="card-label">Universities Hit</div>
+        <span class="card-pill pill-amber">Iran Claims</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <div class="section-label animate d3" id="section-tl">— Conflict Timeline</div>
+  <div class="tl-wrap animate d4">
+    <div class="timeline">
+      <div id="timeline-rows">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer animate d5">
+    <div class="footer-brand" id="footer-brand">CrisisWatch · OilDomino</div>
+    <div class="footer-url" id="footer-url">rubi-ai-deploy.github.io/oil-domino-effect</div>
+    <div class="footer-loc" id="footer-loc">Middle East · April 2026</div>
+  </footer>
+</div>
+
+<script>
+  // init
+  setLang('en');
+  // respect OS preference
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    toggleTheme();
+  }
+</script>
+</body>
+</html>
